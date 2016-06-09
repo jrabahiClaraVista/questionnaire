@@ -1,0 +1,36 @@
+.kpi-box{
+	.inside{
+		background: $content-bg-color;
+		min-height: 150px;
+		padding-bottom: 20px;
+		&.top{
+			height: auto;
+			padding-bottom: 15px;
+			min-height: 150px !important;
+
+			div.green-box{
+				background: $kpi-green-box;
+				color:white;
+				padding: 15px 0 10px 0;
+				height:100px;
+
+				h3{
+					margin-top: 0px !important;
+				}
+			}
+		}
+
+		&.rappel{
+			min-height: 150px !important;
+		}
+	}
+
+	h4{
+		background: $title-kpi-box-color;
+	}
+
+	.img-container{
+		height: 300px;
+		margin: 15px 0;
+	}
+}

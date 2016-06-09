@@ -1,0 +1,25 @@
+body{
+	background: $body-bg-color;
+	color: $text-color;
+	min-width: $min-width !important;
+}
+header.nav-wrap{
+	min-width: $min-width !important;
+}
+.spacer{
+	height:0;
+	clear:both;
+	&.header{
+		margin-top: 50px;
+	}
+}
+#content{
+	margin-top: 70px;
+}
+.light-green{
+	background: $kpi-body-bg-color;
+}
+
+.bordered{
+	border: 1px solid $border-content-color;
+}
