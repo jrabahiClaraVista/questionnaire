@@ -175,15 +175,20 @@ class CampaignController extends Controller
 
             $data = $form->getData();
 
-
-            //Get multiple Bcc and Cs as array
-            if($data['bcc'] != ""){
-                $bcc = array_map('trim', explode(',', $data['bcc'])); 
+            if( isset($data['bcc']) ) {
+                //Get multiple Bcc and Cs as array
+                if($data['bcc'] != ""){
+                    $bcc = array_map('trim', explode(',', $data['bcc'])); 
+                }
+                else $bcc = null;
             }
             else $bcc = null;
+            if( isset($data['cc']) ) {
+                if($data['cc'] != ""){
+                    $cc = array_map('trim', explode(',', $data['cc'])); 
+                }
+                else $cc = null;
 
-            if($data['cc'] != ""){
-                $cc = array_map('trim', explode(',', $data['cc'])); 
             }
             else $cc = null;
 
