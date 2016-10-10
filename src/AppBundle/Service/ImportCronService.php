@@ -35,7 +35,7 @@ class ImportCronService
     {   
         $date = new \DateTime();
         $date = $date->format("mY");
-        rename ("D:\wamp\www\StoreApp\web\imports\TABLEAU_DE_BORD_lp_rq.csv" , "D:\wamp\www\StoreApp\web\imports\TABLEAU_DE_BORD_lp_rq_".$date.".csv" );
+        rename ("D:\wamp\www\LpTdbV2\web\imports\TABLEAU_DE_BORD_lp_rq.csv" , "D:\wamp\www\LpTdbV2\web\imports\TABLEAU_DE_BORD_lp_rq_".$date.".csv" );
     }
 
     //////////////////////////////////////////
@@ -43,7 +43,7 @@ class ImportCronService
 	public function importClientCSVFileLp($curEntityClass)
     {        
 
-        $filename = 'D:\wamp\www\StoreApp\web\imports\TABLEAU_DE_BORD_lp_rq.csv';
+        $filename = 'D:\wamp\www\LpTdbV2\web\imports\TABLEAU_DE_BORD_lp_rq.csv';
         $file = new \SplFileObject($filename);
         if ($file === false) die("Can't open filestream $filename");
 
