@@ -72,35 +72,35 @@ class Client
     /**
      * @var text
      *
-     * @ORM\Column(name="commentaire1", type="text")
+     * @ORM\Column(name="commentaire1", type="text", nullable=true)
      */
     private $commentaire1;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="commentaire2", type="text")
+     * @ORM\Column(name="commentaire2", type="text", nullable=true)
      */
     private $commentaire2;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="commentaire3", type="text")
+     * @ORM\Column(name="commentaire3", type="text", nullable=true)
      */
     private $commentaire3;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="commentaire4", type="text")
+     * @ORM\Column(name="commentaire4", type="text", nullable=true)
      */
     private $commentaire4;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="commentaire5", type="text")
+     * @ORM\Column(name="commentaire5", type="text", nullable=true)
      */
     private $commentaire5;
 
