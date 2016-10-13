@@ -1,8 +1,12 @@
 # src/OC/PlatformBundle/Resources/config/routing.yml
 
-#app_home:
-#    path:      /home
-#    defaults:  { _controller: AppBundle:Home:index}
+app_home:
+    path:      /home/{hash}
+    defaults:  { _controller: AppBundle:Home:index}
+
+app_merci:
+    path:      /merci
+    defaults:  { _controller: AppBundle:Home:merci}
 
 
 
@@ -11,5 +15,5 @@ root:
     path: /
     defaults:
         _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /admin/login
+        path: /admin
         permanent: true

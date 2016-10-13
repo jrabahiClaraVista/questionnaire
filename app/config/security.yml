@@ -62,6 +62,9 @@ security:
             logout:             true
             anonymous:          true
             switch_user:        true
+            remember_me:
+                key: "%secret%"
+                lifetime: 172800 # 2 days
 
     access_control:
         # URL of FOSUserBundle which need to be available to anonymous users
@@ -71,7 +74,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # App URLs
-        - { path: ^/home$, role: ROLE_USER }
+        - { path: ^/home$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/test$, role: ROLE_USER }
 
         # Admin login page needs to be accessed without credential

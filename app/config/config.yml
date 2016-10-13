@@ -10,6 +10,9 @@ imports:
 parameters:
     locale: fr
     sonata.user.admin.user.class: Application\Sonata\UserBundle\Admin\UserAdmin
+    local_ip: 127.0.0.1
+    maintenance: false #turn it to true to enable maintenance
+    underMaintenanceUntil: 01/09 - 12H00 environ
 
 framework:
     #esi:             ~
@@ -34,7 +37,8 @@ framework:
     http_method_override: true
 
 mopa_bootstrap:
-    form: ~
+    form:
+        render_optional_text: false
 
 # Twig Configuration
 twig:
@@ -66,10 +70,14 @@ assetic:
         #Add path of bin
         #php app/console assetic:watch
         #php app/console assetic:dump --env=prod --no-debug
-        #sass:
-        #    bin: C:\Ruby22-x64\bin\sass
-        #compass:
-        #    bin: C:\Ruby22-x64\bin\compass
+        #In vendor krisswallsmith -> CompassFilter.php
+        #chancge line 312 $pb->add('--sass-dir')->add('')->add('--css-dir')->add('');
+        #to $pb->add('--sass-dir')->add($tempDir)->add('--css-dir')->add($tempDir);
+        sass:
+            bin: C:\Ruby22-x64\bin\sass
+        compass:
+            bin: C:\Ruby22-x64\bin\compass
+
 
 # Doctrine Configuration
 doctrine:
@@ -96,12 +104,11 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: smtp
-    #host:      "%mailer_host%"
-    #username:  "%mailer_user%"
-    #password:  "%mailer_password%"
-    auth_mode: login
-    spool:     { type: memory }
-
-
-
+    transport:  "%mailer_transport%"
+    host:       "%mailer_host%"
+    username:   "%mailer_user%"
+    password:   "%mailer_password%"
+    port:       587
+    encryption: tls
+    #auth_mode:  login
+    spool:      { type: memory }
