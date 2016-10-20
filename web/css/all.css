@@ -21,7 +21,7 @@ input:-webkit-autofill:focus {
 body {
   background: white;
   color: #151515;
-  font-family: Verdana;
+  font-family: Arial;
   padding-top: 50px;
   font-size: 18px;
 }
@@ -37,30 +37,43 @@ footer {
   clear: both;
 }
 
-/* line 16, ../../../web/sass/_body.scss */
+/* line 15, ../../../web/sass/_body.scss */
+a {
+  text-decoration: none !important;
+  -webkit-border-radius: 0;
+  -webkit-transition: all 0.3s;
+  /* Safari */
+  transition: all 0.3s;
+}
+/* line 21, ../../../web/sass/_body.scss */
+a:hover {
+  color: #666666 !important;
+}
+
+/* line 25, ../../../web/sass/_body.scss */
 hr {
   border-color: #151515 !important;
 }
 
-/* line 19, ../../../web/sass/_body.scss */
+/* line 28, ../../../web/sass/_body.scss */
 h1 {
   font-size: 30px !important;
   margin: 25px 0 0 0 !important;
 }
 
-/* line 24, ../../../web/sass/_body.scss */
+/* line 33, ../../../web/sass/_body.scss */
 .bordered {
   border: 1px solid #efefef;
 }
 
-/* line 28, ../../../web/sass/_body.scss */
+/* line 37, ../../../web/sass/_body.scss */
 .home-block > div > div {
   margin-top: 30px;
   padding: 0 30px 30px 30px;
   border: 1px solid #151515;
 }
 
-/* line 35, ../../../web/sass/_body.scss */
+/* line 44, ../../../web/sass/_body.scss */
 .etoile {
   display: inline-block;
   background: no-repeat center center;
@@ -78,14 +91,16 @@ h1 {
     }*/
 }
 
-/* line 52, ../../../web/sass/_body.scss */
+/* line 61, ../../../web/sass/_body.scss */
 .header-form {
-  height: 110px;
-  background: url(../web/images/services_1.jpg);
+  height: 240px;
+  background: url(../web/images/services_1.jpg) no-repeat 0px -25px;
   background-size: cover;
   margin-bottom: 30px;
+  margin-top: 20px;
+  box-sizing: border-box;
 }
-/* line 58, ../../../web/sass/_body.scss */
+/* line 69, ../../../web/sass/_body.scss */
 .header-form h2 {
   line-height: 110px;
   color: white;
@@ -93,7 +108,7 @@ h1 {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* line 66, ../../../web/sass/_body.scss */
+/* line 77, ../../../web/sass/_body.scss */
 .btn.btn-lp {
   background-color: white;
   border: 1px solid transparent;
@@ -104,35 +119,50 @@ h1 {
   /* Safari */
   transition: all 0.3s;
 }
-/* line 75, ../../../web/sass/_body.scss */
+/* line 86, ../../../web/sass/_body.scss */
 .btn.btn-lp:hover {
   border: 1px solid #151515;
 }
 
-/* line 79, ../../../web/sass/_body.scss */
+/* line 90, ../../../web/sass/_body.scss */
+.btn.btn-lp-action {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -webkit-transition: all 0.3s;
+  /* Safari */
+  transition: all 0.3s;
+}
+/* line 98, ../../../web/sass/_body.scss */
+.btn.btn-lp-action:hover {
+  background-color: #333333;
+}
+
+/* line 102, ../../../web/sass/_body.scss */
 a {
   color: #151515;
   text-decoration: underline;
 }
-/* line 82, ../../../web/sass/_body.scss */
+/* line 105, ../../../web/sass/_body.scss */
 a:hover {
   color: #151515;
 }
 
-/* line 87, ../../../web/sass/_body.scss */
+/* line 110, ../../../web/sass/_body.scss */
 .commentaire {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-/* line 91, ../../../web/sass/_body.scss */
+/* line 114, ../../../web/sass/_body.scss */
 .commentaire textarea {
   border-radius: 0;
   -webkit-border-radius: 0;
   border-color: #151515;
 }
 
-/* line 96, ../../../web/sass/_body.scss */
+/* line 119, ../../../web/sass/_body.scss */
 #step2, #step3, #step4, #step5, #step6 {
   display: none;
 }
