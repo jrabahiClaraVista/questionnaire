@@ -1,7 +1,7 @@
 body{
 	background: white;
 	color: #151515;
-	font-family: Verdana;
+	font-family: Arial;
 	padding-top:50px;
 	font-size: 18px;
 }
@@ -12,7 +12,16 @@ footer{
 	height:0;
 	clear:both;
 }
+a{
+	text-decoration: none !important;
+	-webkit-border-radius: 0;
+	-webkit-transition: all 0.3s; /* Safari */
+    transition: all 0.3s;
 
+	&:hover{
+		color: #666666 !important;
+	}
+}
 hr{
 	border-color: #151515 !important;
 }
@@ -50,10 +59,12 @@ h1{
 }
 
 .header-form{
-	height: 110px;
-	background: url(../web/images/services_1.jpg);
+	height: 240px;
+	background: url(../web/images/services_1.jpg) no-repeat 0px -25px;
 	background-size: cover;
 	margin-bottom: 30px;
+	margin-top: 20px;
+	box-sizing: border-box;
 	
 	h2{
 		line-height:110px;
@@ -74,6 +85,18 @@ h1{
 
 	&:hover{
 		border: 1px solid #151515;
+	}
+}
+.btn.btn-lp-action{
+	background-color: black;
+	color: white;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-webkit-transition: all 0.3s; /* Safari */
+    transition: all 0.3s;
+
+	&:hover{
+		background-color: #333333;
 	}
 }
 a{
