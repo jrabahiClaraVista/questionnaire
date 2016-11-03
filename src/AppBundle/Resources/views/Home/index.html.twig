@@ -105,8 +105,8 @@
 					<h4 class="text-left" style="text-transform:uppercase;">Question 3/5</h4>
 					<p>
 						Quelle note donneriez-vous à<br />
-						<strong>LA PRÉSENTATION DES PRODUITS<br />
-						en boutique</strong> (vitrine, mise en avant,<br />
+						<strong>LA PRÉSENTATION DES PRODUITS</strong><br />
+						en boutique (vitrine, mise en avant,<br />
 						merchandising, ...) ?
 					</p>
 
@@ -149,8 +149,8 @@
 					<p>
 						Quelle note donneriez-vous à<br />
 						<strong>VOTRE EXPERIENCE D’ACHAT</strong><br />
-						(conseil, temps d’attente, service<br />
-						proposé,...) ?
+						(conseils, temps d’attente, services<br />
+						proposés,...) ?
 					</p>
 
 					<div class="etoiles_block">
@@ -222,9 +222,19 @@
 				<div class="col-xs-12 text-center">
 					<div class="header-form">
 					</div>
-					<h1 style="font-weight:bold;">MERCI !</h1>
+					<h2 style="font-weight:bold;">MERCI !</h2>
 					<h2>A très vite en boutique ou<br />
-						sur <a href="https://www.louispion.fr">louispion.fr</a>, <a href="https://www.instagram.com/louispion/">Instagram</a> et <a href="https://www.facebook.com/LouisPionOfficiel">Facebook</a> !</h2>
+						sur <a class="underline" href="https://www.louispion.fr">louispion.fr</a>, <a class="underline" href="https://www.instagram.com/louispion/">Instagram</a> et <a class="underline" href="https://www.facebook.com/LouisPionOfficiel">Facebook</a> !</h2>
+				</div>
+				<div class="icons">
+
+					<span class="title">Restons connectés !</span>
+
+					<a class="instagram" href="http://instagram.com/louispion" target="_blank" title="Instagram"></a>
+					<a class="facebook" href="https://www.facebook.com/LouisPionOfficiel" target="_blank" title="Facebook"></a>
+					<a class="twitter" href="https://twitter.com/LouisPion" target="_blank" title="Twitter"></a>
+					<a class="youtube" href="http://www.youtube.com/user/LouisPionOfficiel" target="_blank" title="Youtube"></a>
+
 				</div>
 			</div>
 		</div>
@@ -236,8 +246,8 @@
 	<div  id="legend" class=" col-md-10 col-md-offset-1 col-xs-12">
 		<div class="col-xs-12 text-center"><br />
 			<p>
-				1 étoile = vous n’êtes pas du tout satisfait<br />
-				5 étoiles = vous etes très satisfait
+				<span id="one_text">1 étoile = vous n’êtes pas du tout satisfait</span><br />
+				<span id="two_text">5 étoiles = vous etes très satisfait</span>
 			</p>
 		</div>
 	</div>
@@ -840,6 +850,8 @@
 		  	$("#next4").on('click', function(){
 		  		$("#step4").hide();
 		  		$("#step5").show();
+		  		$("#one_text").html("1 étoiles = tout à fait improbable");
+		  		$("#two_text").html("5 étoiles = tout à fait probable");
 		  	});
 		  	$("#appbundle_client_Envoyer").on('click', function(){
 		  		$("#step5").hide();
@@ -861,6 +873,8 @@
 		  	$("#prev5").on('click', function(){
 		  		$("#step5").hide();
 		  		$("#step4").show();
+		  		$("#one_text").html("1 étoiles = vous n’êtes pas du tout satisfait");
+		  		$("#two_text").html("5 étoiles = vous etes très satisfaite");
 		  	});		  	
 
 		});

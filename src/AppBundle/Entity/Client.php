@@ -30,7 +30,7 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="hash", type="string", length=255, unique=true)
+     * @ORM\Column(name="hash", type="string", length=255)
      */
     private $hash;
 
@@ -125,18 +125,37 @@ class Client
      * @var \DateTime
      *
      * @ORM\Column(name="last_visit_at", type="datetime", nullable=true)
-     * @Gedmo\Timestampable(on="update")
+     * @Gedmo\Timestampable(on="create")
      */
     private $lastVisitAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_commande", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    private $dateCommande;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="validated", type="boolean")
+     */
+    private $validated;
 
     public function __construct()
     {
         $this->createdAt    = new \DateTime();
+        $this->modifiedAt   = null;
+        $this->lastVisitAt  = new \DateTime();
+        $this->dateCommande = new \DateTime();
         $this->question1    = 0;
         $this->question2    = 0;
         $this->question3    = 0;
         $this->question4    = 0;
         $this->question5    = 0;
+        $this->validated    = 0;
     }
 
     /**
@@ -157,7 +176,7 @@ class Client
      * @return string
      */
     public function __toString() {
-        return $this->hash();
+        return $this->hash;
     }
 
     /**
@@ -188,6 +207,28 @@ class Client
     public function setHash($hash)
     {
         $this->hash = $hash;
+
+        return $this;
+    }
+
+    /**
+     * Get validated
+     *
+     * @return boolean
+     */
+    public function getValidated()
+    {
+        return $this->validated;
+    }
+
+    /**
+     * Set validated
+     *
+     * @return Client
+     */
+    public function setValidated($validated)
+    {
+        $this->validated = $validated;
 
         return $this;
     }
@@ -485,6 +526,31 @@ class Client
     public function getLastVisitAt()
     {
         return $this->lastVisitAt;
+    }
+
+    /**
+     * Set dateCommande
+     *
+     * @param \DateTime $dateCommande
+     *
+     * @return Client
+     */
+    public function setDateCommande($dateCommande)
+    {
+        if( !($dateCommande instanceof \DateTime) ) $dateCommande = new \DateTime($dateCommande);
+        $this->dateCommande = $dateCommande;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCommande
+     *
+     * @return \DateTime
+     */
+    public function getDateCommande()
+    {
+        return $this->dateCommande;
     }
 
     /**
