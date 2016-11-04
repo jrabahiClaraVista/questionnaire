@@ -65,7 +65,11 @@ class HomeController extends Controller
             $client->setCommentaire3($data->getCommentaire3());
             $client->setCommentaire4($data->getCommentaire4());
             $client->setCommentaire5($data->getCommentaire5());
-            $client->setValidated(true);
+
+            if( $data->getCommentaire1() != 0 && $data->getCommentaire2() != 0 && $data->getCommentaire3() != 0 && $data->getCommentaire4() != 0 && $data->getCommentaire5() != 0 )
+            {
+                $client->setValidated(true);
+            }
 
             $em->flush();
 
