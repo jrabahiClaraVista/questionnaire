@@ -14,6 +14,7 @@ use AppBundle\Form\ClientType;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
@@ -24,29 +25,30 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 // Pour gérer le ParamConverter et utiliser un entité en parametre à la place d'une simple variable
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
+
 class HomeController extends Controller
 {
-    public function indexAction($hash, Request $request)
+    /**
+     * @ParamConverter("client", options={"mapping": {"client_id": "id"}})
+     */
+    public function indexAction(Client $client, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $client = $em->getRepository('AppBundle:Client')->findOneBy(array('hash' => $hash));
-
-        if ($client == null) {
-            $client = new Client();
-            $client->setHash($hash);
-
-            $em->persist($client);
-            $em->flush();
-
-            $form = $this->createForm(new ClientType());
+        if( $client == null){
+            throw new NotFoundHttpException();
         }
-        else{
-            $client->setLastVisitAt(new \DateTime());            
-            $em->flush();
 
-            $form = $this->createForm(new ClientType(), $client);
+        if( $client->getValidated() == 1){
+            return $this->render('AppBundle:Home:merci.html.twig', array(
+                    )
+                );
         }
+
+        $client->setLastVisitAt(new \DateTime());            
+        $em->flush();
+
+        $form = $this->createForm(new ClientType(), $client);
 
         $form->handleRequest($request);
 
@@ -64,6 +66,11 @@ class HomeController extends Controller
             $client->setCommentaire4($data->getCommentaire4());
             $client->setCommentaire5($data->getCommentaire5());
 
+            if( $data->getCommentaire1() != 0 && $data->getCommentaire2() != 0 && $data->getCommentaire3() != 0 && $data->getCommentaire4() != 0 && $data->getCommentaire5() != 0 )
+            {
+                $client->setValidated(true);
+            }
+
             $em->flush();
 
             if($request->getMethod() == 'POST'){
@@ -78,6 +85,38 @@ class HomeController extends Controller
             'form'   => $form->createView()
             )
         );        
+    }
+
+    public function dateAction($hash, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $date = explode(" ", $request->get('d'));
+        $date = explode("/",$date[0]);
+
+        $dateCommande = $date[2].'-'.$date[1].'-'.$date[0];
+
+        $dateCommande = new \DateTime($dateCommande);
+
+        $client = $em->getRepository('AppBundle:Client')->findOneBy(array('hash' => $hash, 'dateCommande' => $dateCommande));
+
+        if ($client == null) {
+            $client = new Client();
+            $client->setHash($hash);
+            $client->setDateCommande($dateCommande);
+
+            $em->persist($client);
+            $em->flush();
+        }
+
+        /*$response = $this->forward('AppBundle:Home:index', array(
+            'client_id' => $client->getId(),
+        ));*/
+        $response =  new RedirectResponse($this->generateUrl('app_home', array('client_id' => $client->getId())));
+
+        // ... further modify the response or return it directly
+
+        return $response;
     }
 
     public function merciAction(Request $request)

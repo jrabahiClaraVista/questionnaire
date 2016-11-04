@@ -1,8 +1,12 @@
 # src/OC/PlatformBundle/Resources/config/routing.yml
 
 app_home:
-    path:      /q/{hash}
+    path:      /questionnaire/{client_id}
     defaults:  { _controller: AppBundle:Home:index}
+
+app_datecomande:
+    path:      /d/{hash}
+    defaults:  { _controller: AppBundle:Home:date}
 
 app_merci:
     path:      /merci

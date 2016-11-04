@@ -13,7 +13,6 @@ footer{
 	clear:both;
 }
 a{
-	text-decoration: none !important;
 	-webkit-border-radius: 0;
 	-webkit-transition: all 0.3s; /* Safari */
     transition: all 0.3s;
@@ -126,6 +125,12 @@ a{
 	&:hover{
 		color:#151515;
 	}
+}
+
+.icons a {
+	text-decoration: none;
+    margin: 3px 48px 0 0;
+    display: inline-block;
 }
 
 .commentaire{
