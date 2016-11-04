@@ -23,7 +23,7 @@ body {
   color: #151515;
   font-family: Arial;
   padding-top: 50px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* line 8, ../..//web/sass/_body.scss */
@@ -39,45 +39,42 @@ footer {
 
 /* line 15, ../..//web/sass/_body.scss */
 a {
-  text-decoration: none !important;
   -webkit-border-radius: 0;
   -webkit-transition: all 0.3s;
   /* Safari */
   transition: all 0.3s;
 }
-/* line 21, ../..//web/sass/_body.scss */
+
 a:hover {
   color: #666666 !important;
 }
 
-/* line 25, ../..//web/sass/_body.scss */
 hr {
   border-color: #151515 !important;
 }
 
-/* line 28, ../..//web/sass/_body.scss */
 h1 {
-  font-size: 30px !important;
+  font-size: 28px !important;
   margin: 25px 0 0 0 !important;
 }
-/* line 32, ../../../web/sass/_body.scss */
+/* line 31, ../../../web/sass/_body.scss */
 h1.decorate {
   padding-bottom: 10px;
   border-bottom: solid 1px #ababab;
 }
-/* line 37, ../../../web/sass/_body.scss */
+/* line 36, ../../../web/sass/_body.scss */
 h1:after {
   content: '';
   width: 60px;
   height: 3px;
   background: #000;
   position: absolute;
-  top: 112px;
+  top: 110px;
   left: 50%;
   margin-left: -30px;
 }
 
-/* line 49, ../../../web/sass/_body.scss */
+/* line 48, ../../../web/sass/_body.scss */
 .fa-1 {
   padding: 0 10px;
 }
@@ -90,6 +87,7 @@ h1:after {
   margin-top: 30px;
   padding: 0 30px 30px 30px;
 }
+
 
 .etoile {
   display: inline-block;
@@ -123,7 +121,14 @@ h1:after {
   text-shadow: 2px 2px black;
   background-color: rgba(0, 0, 0, 0.2);
 }
-
+@media screen and (max-width: 430px) {
+  /* line 79, ../../../web/sass/_body.scss */
+  .header-form {
+    margin-bottom: 0px !important;
+    background-position: 0 0;
+    height: 150px;
+  }
+}
 
 .btn.btn-lp {
   background-color: white;
@@ -136,6 +141,7 @@ h1:after {
   transition: all 0.3s;
   text-transform: uppercase;
 }
+
 
 .btn.btn-lp:hover {
   border: 1px solid #151515;
@@ -157,6 +163,7 @@ h1:after {
   background-color: #333333;
 }
 
+
 a {
   color: #151515;
   text-decoration: underline;
@@ -166,16 +173,28 @@ a:hover {
   color: #151515;
 }
 
+
+/* line 135, ../../../web/sass/_body.scss */
+.icons a {
+  text-decoration: none;
+  margin: 3px 48px 0 0;
+  display: inline-block;
+}
+
+
 .commentaire {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
 
 .commentaire textarea {
   border-radius: 0;
   -webkit-border-radius: 0;
   border-color: #151515;
 }
+
+
 
 #step2, #step3, #step4, #step5, #step6 {
   display: none;
