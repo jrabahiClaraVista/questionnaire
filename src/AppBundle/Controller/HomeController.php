@@ -66,7 +66,7 @@ class HomeController extends Controller
             $client->setCommentaire4($data->getCommentaire4());
             $client->setCommentaire5($data->getCommentaire5());
 
-            if( $data->getCommentaire1() != 0 && $data->getCommentaire2() != 0 && $data->getCommentaire3() != 0 && $data->getCommentaire4() != 0 && $data->getCommentaire5() != 0 )
+            if( $data->getQuestion1() != 0 && $data->getQuestion2() != 0 && $data->getQuestion3() != 0 && $data->getQuestion4() != 0 && $data->getQuestion5() != 0 )
             {
                 $client->setValidated(true);
             }
