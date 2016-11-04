@@ -34,6 +34,11 @@
 						<span id="question1_4" class="etoile etoile4" number="1" value="4"></span>
 						<span id="question1_5" class="etoile etoile5" number="1" value="5"></span>
 					</div>
+					<div class="error col-xs-12" style="margin:10px 0;display:none;">
+						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
+							Veuillez sélectionner une étoile ci-dessus pour passer à la suite du questionnaire.
+						</p>
+					</div>
 					<div class="col-xs-12 text-left commentaire">
 						<label for="appbundle_client[commentaire3]">
 							Commentaire :
@@ -73,6 +78,11 @@
 						<span id="question2_3" class="etoile etoile3" number="2" value="3"></span>
 						<span id="question2_4" class="etoile etoile4" number="2" value="4"></span>
 						<span id="question2_5" class="etoile etoile5" number="2" value="5"></span>
+					</div>
+					<div class="error col-xs-12" style="margin:10px 0;display:none;">
+						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
+							Veuillez sélectionner une étoile ci-dessus pour passer à la suite du questionnaire.
+						</p>
 					</div>
 					
 					<div class="col-xs-12 text-left commentaire">
@@ -117,6 +127,11 @@
 						<span id="question3_4" class="etoile etoile4" number="3" value="4"></span>
 						<span id="question3_5" class="etoile etoile5" number="3" value="5"></span>
 					</div>
+					<div class="error col-xs-12" style="margin:10px 0;display:none;">
+						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
+							Veuillez sélectionner une étoile ci-dessus pour passer à la suite du questionnaire.
+						</p>
+					</div>
 					
 					<div class="col-xs-12 text-left commentaire">
 						<label for="appbundle_client[commentaire3]">
@@ -160,6 +175,11 @@
 						<span id="question4_4" class="etoile etoile4" number="4" value="4"></span>
 						<span id="question4_5" class="etoile etoile5" number="4" value="5"></span>
 					</div>
+					<div class="error col-xs-12" style="margin:10px 0;display:none;">
+						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
+							Veuillez sélectionner une étoile ci-dessus pour passer à la suite du questionnaire.
+						</p>
+					</div>
 					
 					<div class="col-xs-12 text-left commentaire">
 						<label for="appbundle_client[commentaire3]">
@@ -200,6 +220,11 @@
 						<span id="question5_3" class="etoile etoile3" number="5" value="3"></span>
 						<span id="question5_4" class="etoile etoile4" number="5" value="4"></span>
 						<span id="question5_5" class="etoile etoile5" number="5" value="5"></span>
+					</div>
+					<div class="error col-xs-12" style="margin:10px 0;display:none;">
+						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
+							Veuillez sélectionner une étoile ci-dessus pour passer à la suite du questionnaire.
+						</p>
 					</div>
 					
 					<div class="col-xs-12 text-left commentaire">
@@ -261,30 +286,33 @@
 
 			$('form').on('submit', function (e) {
 		        e.preventDefault();
+
+		        if( $("#appbundle_client_question5").val() != 0 ) {
 		 
-		        $.ajax({
-		            type: $(this).attr('method'),
-		            url: $(this).attr('action'),
-		            data: $(this).serialize()
-		        })
-		        .done(function (data) {
-		            if (typeof data.message !== 'undefined') {
-		                alert(data.message);
-		            }
-		        })
-		        .fail(function (jqXHR, textStatus, errorThrown) {
-		            if (typeof jqXHR.responseJSON !== 'undefined') {
-		                if (jqXHR.responseJSON.hasOwnProperty('form')) {
-		                    $('#form_body').html(jqXHR.responseJSON.form);
-		                }
-		 
-		                $('.form_error').html(jqXHR.responseJSON.message);
-		 
-		            } else {
-		                alert(errorThrown);
-		            }
-		 
-		        });
+			        $.ajax({
+			            type: $(this).attr('method'),
+			            url: $(this).attr('action'),
+			            data: $(this).serialize()
+			        })
+			        .done(function (data) {
+			            if (typeof data.message !== 'undefined') {
+			                alert(data.message);
+			            }
+			        })
+			        .fail(function (jqXHR, textStatus, errorThrown) {
+			            if (typeof jqXHR.responseJSON !== 'undefined') {
+			                if (jqXHR.responseJSON.hasOwnProperty('form')) {
+			                    $('#form_body').html(jqXHR.responseJSON.form);
+			                }
+			 
+			                $('.form_error').html(jqXHR.responseJSON.message);
+			 
+			            } else {
+			                alert(errorThrown);
+			            }
+			 
+			        });
+			    }
 		    });
 			/*
 				Init
@@ -836,45 +864,79 @@
 		  	*/
 
 		  	$("#next1").on('click', function(){
-		  		$("#step1").hide();
-		  		$("#step2").show();
+		  		if( $("#appbundle_client_question1").val() == 0 ) {
+		  			$(".error").show();
+		  		}
+		  		else{
+		  			$(".error").hide();
+		  			$("#step1").hide();
+		  			$("#step2").show();
+		  		}
 		  	});
 		  	$("#next2").on('click', function(){
-		  		$("#step2").hide();
-		  		$("#step3").show();
+		  		if( $("#appbundle_client_question2").val() == 0 ) {
+		  			$(".error").show();
+		  		}
+		  		else{
+		  			$(".error").hide();
+		  			$("#step2").hide();
+		  			$("#step3").show();
+		  		}
 		  	});
 		  	$("#next3").on('click', function(){
-		  		$("#step3").hide();
-		  		$("#step4").show();
+		  		if( $("#appbundle_client_question3").val() == 0 ) {
+		  			$(".error").show();
+		  		}
+		  		else{
+		  			$(".error").hide();
+		  			$("#step3").hide();
+		  			$("#step4").show();
+		  		}
 		  	});
 		  	$("#next4").on('click', function(){
-		  		$("#step4").hide();
-		  		$("#step5").show();
-		  		$("#one_text").html("1 étoiles = tout à fait improbable");
-		  		$("#two_text").html("5 étoiles = tout à fait probable");
+		  		if( $("#appbundle_client_question4").val() == 0 ) {
+		  			$(".error").show();
+		  		}
+		  		else{
+		  			$(".error").hide();
+		  			$("#step4").hide();
+		  			$("#step5").show();
+			  		$("#one_text").html("1 étoiles = tout à fait improbable");
+			  		$("#two_text").html("5 étoiles = tout à fait probable");
+		  		}
 		  	});
 		  	$("#appbundle_client_Envoyer").on('click', function(){
-		  		$("#step5").hide();
-		  		$("#legend").hide();
-		  		$("#step6").show();
+		  		if( $("#appbundle_client_question5").val() == 0 ) {
+		  			$(".error").show();
+		  		}
+		  		else{
+		  			$(".error").hide();
+		  			$("#step5").hide();
+		  			$("#legend").hide();
+		  			$("#step6").show();
+		  		}
 		  	});
 		  	$("#prev2").on('click', function(){
 		  		$("#step2").hide();
 		  		$("#step1").show();
+		  		$(".error").hide();
 		  	});		  	
 		  	$("#prev3").on('click', function(){
 		  		$("#step3").hide();
 		  		$("#step2").show();
+		  		$(".error").hide();
 		  	});
 		  	$("#prev4").on('click', function(){
 		  		$("#step4").hide();
 		  		$("#step3").show();
+		  		$(".error").hide();
 		  	});
 		  	$("#prev5").on('click', function(){
 		  		$("#step5").hide();
 		  		$("#step4").show();
 		  		$("#one_text").html("1 étoiles = vous n’êtes pas du tout satisfait");
 		  		$("#two_text").html("5 étoiles = vous etes très satisfaite");
+		  		$(".error").hide();
 		  	});		  	
 
 		});
