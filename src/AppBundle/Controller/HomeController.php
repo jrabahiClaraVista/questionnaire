@@ -41,6 +41,7 @@ class HomeController extends Controller
 
         if( $client->getValidated() == 1){
             return $this->render('AppBundle:Home:merci.html.twig', array(
+                'client' => $client
                     )
                 );
         }
@@ -119,10 +120,14 @@ class HomeController extends Controller
         return $response;
     }
 
-    public function merciAction(Request $request)
+    /**
+     * @ParamConverter("client", options={"mapping": {"client_id": "id"}})
+     */
+    public function merciAction(Client $client, Request $request)
     {
 
         return $this->render('AppBundle:Home:merci.html.twig', array(
+            'client' => $client
             )
         );
     }
