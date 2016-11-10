@@ -9,7 +9,7 @@ app_datecomande:
     defaults:  { _controller: AppBundle:Home:date}
 
 app_merci:
-    path:      /merci
+    path:      /merci/{client_id}
     defaults:  { _controller: AppBundle:Home:merci}
 
 
