@@ -21,9 +21,9 @@ input:-webkit-autofill:focus {
 body {
   background: white;
   color: #151515;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   padding-top: 50px;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 /* line 8, ../..//web/sass/_body.scss */
