@@ -42,7 +42,8 @@ class ExportCronService
       'commentaire2',
       'commentaire3',
       'commentaire4',
-      'commentaire5'
+      'commentaire5',
+      'validated_at'
       ),';');
 
     //Champs
@@ -79,6 +80,14 @@ class ExportCronService
       else{
         $date3 = null;
       }
+
+      if( $row->getValidatedAt() instanceof \DateTime )
+      {
+        $date4 = $row->getValidatedAt()->format("Y-m-d H:I:s");
+      }
+      else{
+        $date4 = null;
+      }
       
       fputcsv($handle,array(
         $row->getId(),
@@ -96,7 +105,8 @@ class ExportCronService
         $row->getCommentaire2(),
         $row->getCommentaire3(),
         $row->getCommentaire4(),
-        $row->getCommentaire5()
+        $row->getCommentaire5(),
+        $date4
         ),'|');
     }
 

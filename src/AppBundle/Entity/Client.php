@@ -124,6 +124,13 @@ class Client
     /**
      * @var \DateTime
      *
+     * @ORM\Column(name="validated_at", type="datetime", nullable=true)
+     */
+    private $validatedAt;
+
+    /**
+     * @var \DateTime
+     *
      * @ORM\Column(name="last_visit_at", type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="create")
      */
@@ -137,25 +144,18 @@ class Client
      */
     private $dateCommande;
 
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="validated", type="boolean")
-     */
-    private $validated;
-
     public function __construct()
     {
         $this->createdAt    = new \DateTime();
-        $this->modifiedAt   = null;
+        $this->modifiedAt   = null \DateTime();
         $this->lastVisitAt  = new \DateTime();
+        $this->validatedAt  = null;
         //$this->dateCommande = new \DateTime();
         $this->question1    = 0;
         $this->question2    = 0;
         $this->question3    = 0;
         $this->question4    = 0;
         $this->question5    = 0;
-        $this->validated    = 0;
     }
 
     /**
@@ -207,28 +207,6 @@ class Client
     public function setHash($hash)
     {
         $this->hash = $hash;
-
-        return $this;
-    }
-
-    /**
-     * Get validated
-     *
-     * @return boolean
-     */
-    public function getValidated()
-    {
-        return $this->validated;
-    }
-
-    /**
-     * Set validated
-     *
-     * @return Client
-     */
-    public function setValidated($validated)
-    {
-        $this->validated = $validated;
 
         return $this;
     }
@@ -501,6 +479,31 @@ class Client
     public function getModifiedAt()
     {
         return $this->modifiedAt;
+    }
+
+    /**
+     * Set validatedAt
+     *
+     * @param \DateTime $validatedAt
+     *
+     * @return Client
+     */
+    public function setValidatedAt($validatedAt)
+    {
+        if( !($validatedAt instanceof \DateTime) ) $validatedAt = new \DateTime($validatedAt);
+        $this->validatedAt = $validatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get validatedAt
+     *
+     * @return \DateTime
+     */
+    public function getValidatedAt()
+    {
+        return $this->validatedAt;
     }
 
     /**

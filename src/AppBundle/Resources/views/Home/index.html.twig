@@ -4,7 +4,7 @@
 	<h1 class="text-center decorate">Questionnaire de satisfaction</h1>	
 
 	<div id="form_body">
-		{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+		{{ form_start(form, {'attr': {'class': 'form-horizontal', 'id': 'submit-form'}}) }}
 			{{ form_errors(form) }}
 		<div class="form_error"></div>
 
@@ -48,7 +48,7 @@
 						</div>
 					</div>
 					<div>
-						<button id="next1" type="button" class="btn btn-lp-action">Suivant</button>
+						{{ form_widget(form.Suivant1, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
 					</div>
 				</div>
 			</div>
@@ -95,7 +95,7 @@
 					</div>
 					<div>
 						<button id="prev2" type="button" class="btn btn-lp-action">Précédent</button>
-						<button id="next2" type="button" class="btn btn-lp-action">Suivant</button>
+						{{ form_widget(form.Suivant2, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
 					</div>
 				</div>
 			</div>
@@ -143,7 +143,7 @@
 					</div>
 					<div>
 						<button id="prev3" type="button" class="btn btn-lp-action">Précédent</button>
-						<button id="next3" type="button" class="btn btn-lp-action">Suivant</button>
+						{{ form_widget(form.Suivant3, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
 					</div>			
 				</div>
 			</div>
@@ -191,7 +191,7 @@
 					</div>
 					<div>
 						<button id="prev4" type="button" class="btn btn-lp-action">Précédent</button>
-						<button id="next4" type="button" class="btn btn-lp-action">Suivant</button>
+						{{ form_widget(form.Suivant4, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
 					</div>
 				</div>
 			</div>
@@ -247,13 +247,16 @@
 				<div class="col-xs-12 text-center">
 					<div class="header-form">
 					</div>
+					<br />
 					<h2 style="font-weight:bold;">MERCI !</h2>
+					<br />
 					<h2>A très vite en boutique ou<br />
 						sur <a class="underline" href="https://www.louispion.fr">louispion.fr</a> !</h2>
 				</div>
 				<div class="text-center">
 
 					<h3 class="title">Restons connectés !</h3>
+					<br />
 
 					<a class="instagram" href="http://instagram.com/louispion" target="_blank" title="Instagram" style="padding:0 10px;"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
 					<a class="facebook" href="https://www.facebook.com/LouisPionOfficiel" target="_blank" title="Facebook" style="padding:0 10px;"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
@@ -287,7 +290,7 @@
 			$('form').on('submit', function (e) {
 		        e.preventDefault();
 
-		        if( $("#appbundle_client_question5").val() != 0 ) {
+		        if( $("#appbundle_client_question1").val() != 0 || $("#appbundle_client_question2").val() != 0 || $("#appbundle_client_question3").val() != 0 || $("#appbundle_client_question4").val() != 0|| $("#appbundle_client_question5").val() != 0 ) {
 		 
 			        $.ajax({
 			            type: $(this).attr('method'),
@@ -295,9 +298,9 @@
 			            data: $(this).serialize()
 			        })
 			        .done(function (data) {
-			            if (typeof data.message !== 'undefined') {
+			            /*if (typeof data.message !== 'undefined') {
 			                alert(data.message);
-			            }
+			            }*/
 			        })
 			        .fail(function (jqXHR, textStatus, errorThrown) {
 			            if (typeof jqXHR.responseJSON !== 'undefined') {
@@ -308,7 +311,7 @@
 			                $('.form_error').html(jqXHR.responseJSON.message);
 			 
 			            } else {
-			                alert(errorThrown);
+			                /*alert(errorThrown);*/
 			            }
 			 
 			        });
@@ -863,17 +866,18 @@
 				Gestion affichage des blocs
 		  	*/
 
-		  	$("#next1").on('click', function(){
+		  	$("#appbundle_client_Suivant1").on('click', function(){
 		  		if( $("#appbundle_client_question1").val() == 0 ) {
 		  			$(".error").show();
 		  		}
 		  		else{
+		  			console.log('ok');
 		  			$(".error").hide();
 		  			$("#step1").hide();
 		  			$("#step2").show();
 		  		}
 		  	});
-		  	$("#next2").on('click', function(){
+		  	$("#appbundle_client_Suivant2").on('click', function(){
 		  		if( $("#appbundle_client_question2").val() == 0 ) {
 		  			$(".error").show();
 		  		}
@@ -883,7 +887,7 @@
 		  			$("#step3").show();
 		  		}
 		  	});
-		  	$("#next3").on('click', function(){
+		  	$("#appbundle_client_Suivant3").on('click', function(){
 		  		if( $("#appbundle_client_question3").val() == 0 ) {
 		  			$(".error").show();
 		  		}
@@ -893,7 +897,7 @@
 		  			$("#step4").show();
 		  		}
 		  	});
-		  	$("#next4").on('click', function(){
+		  	$("#appbundle_client_Suivant4").on('click', function(){
 		  		if( $("#appbundle_client_question4").val() == 0 ) {
 		  			$(".error").show();
 		  		}
