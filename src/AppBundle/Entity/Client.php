@@ -149,7 +149,7 @@ class Client
         $this->createdAt    = new \DateTime();
         $this->modifiedAt   = null;
         $this->lastVisitAt  = new \DateTime();
-        $this->dateCommande = new \DateTime();
+        //$this->dateCommande = new \DateTime();
         $this->question1    = 0;
         $this->question2    = 0;
         $this->question3    = 0;

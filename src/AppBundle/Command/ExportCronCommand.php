@@ -29,12 +29,6 @@ class ExportCronCommand extends ContainerAwareCommand
 		
 		$text = $this->getDescription();
 
-		//$host = $input->getArgument('host');
-		//$username = $input->getArgument('username');
-		//$password = $input->getArgument('password');
-		//$sourceFile = $input->getArgument('sourceFile');
-		//$destinationFile = $input->getArgument('destinationFile');
-
 		$import = $this->getContainer()->get('cron.export');
 
 		$import->createExportClientCSVFile();
