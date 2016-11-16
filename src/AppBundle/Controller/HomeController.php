@@ -39,7 +39,7 @@ class HomeController extends Controller
             throw new NotFoundHttpException();
         }
 
-        if( $client->getValidated() == 1){
+        if( $client->getValidatedAt() instanceof \DateTime ){
             return $this->render('AppBundle:Home:merci.html.twig', array(
                 'client' => $client
                     )
@@ -56,6 +56,7 @@ class HomeController extends Controller
         $data = $form->getData();
 
         if ( $request->getMethod() == 'POST' || $request->isXmlHttpRequest() ) {
+            
             $client->setQuestion1($data->getQuestion1());
             $client->setQuestion2($data->getQuestion2());
             $client->setQuestion3($data->getQuestion3());
@@ -67,9 +68,9 @@ class HomeController extends Controller
             $client->setCommentaire4($data->getCommentaire4());
             $client->setCommentaire5($data->getCommentaire5());
 
-            if( $data->getQuestion1() != 0 && $data->getQuestion2() != 0 && $data->getQuestion3() != 0 && $data->getQuestion4() != 0 && $data->getQuestion5() != 0 )
+            if( $data->getQuestion1() > 0 && $data->getQuestion2() > 0 && $data->getQuestion3() > 0 && $data->getQuestion4() > 0 && $data->getQuestion5() > 0 )
             {
-                $client->setValidated(true);
+                $client->setValidatedAt( new \DateTime() );
             }
 
             $em->flush();
