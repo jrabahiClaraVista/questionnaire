@@ -48,6 +48,14 @@ class ExportCronService
     //Champs
     foreach( $results as $row ) 
     {
+      if( $row->getDateCommande() instanceof \DateTime )
+      {
+        $dateC = $row->getDateCommande()->format("Y-m-d H:I:s");
+      }
+      else{
+        $dateC = null;
+      }
+
       if( $row->getCreatedAt() instanceof \DateTime )
       {
         $date1 = $row->getCreatedAt()->format("Y-m-d H:I:s");
@@ -75,7 +83,7 @@ class ExportCronService
       fputcsv($handle,array(
         $row->getId(),
         $row->getHash(),
-        $row->getDateCommande(),
+        $dateC,
         $row->getQuestion1(),
         $row->getQuestion2(),
         $row->getQuestion3(),
