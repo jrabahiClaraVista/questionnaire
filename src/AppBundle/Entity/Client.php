@@ -147,7 +147,7 @@ class Client
     public function __construct()
     {
         $this->createdAt    = new \DateTime();
-        $this->modifiedAt   = null \DateTime();
+        $this->modifiedAt   = new \DateTime();
         $this->lastVisitAt  = new \DateTime();
         $this->validatedAt  = null;
         //$this->dateCommande = new \DateTime();
