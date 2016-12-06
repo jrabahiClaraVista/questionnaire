@@ -23,7 +23,7 @@ body {
   color: #151515;
   font-family: Arial, sans-serif;
   padding-top: 50px;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 /* line 8, ../../../web/sass/_body.scss */
@@ -224,6 +224,11 @@ a:hover {
 /* line 165, ../../../web/sass/_body.scss */
 #step2, #step3, #step4, #step5, #step6 {
   display: none;
+}
+
+/* line 169, ../../../web/sass/_body.scss */
+h4 {
+  font-size: 16px !important;
 }
 
 /* line 1, ../../../web/sass/_nav.scss */
