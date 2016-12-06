@@ -55,44 +55,67 @@ hr {
 }
 
 /* line 27, ../../../web/sass/_body.scss */
+.etoiles_block {
+  margin: 20px 0 0 0;
+}
+
+/* line 30, ../../../web/sass/_body.scss */
 h1 {
   font-size: 28px !important;
   margin: 25px 0 0 0 !important;
 }
-/* line 31, ../../../web/sass/_body.scss */
+@media screen and (max-width: 480px) {
+  /* line 30, ../../../web/sass/_body.scss */
+  h1 {
+    font-size: 24px !important;
+  }
+}
+/* line 38, ../../../web/sass/_body.scss */
 h1.decorate {
   padding-bottom: 10px;
   border-bottom: solid 1px #ababab;
 }
-/* line 36, ../../../web/sass/_body.scss */
+/* line 43, ../../../web/sass/_body.scss */
 h1:after {
   content: '';
   width: 60px;
   height: 3px;
   background: #000;
   position: absolute;
-  top: 110px;
+  top: 99px;
   left: 50%;
   margin-left: -30px;
 }
+@media screen and (max-width: 480px) {
+  /* line 43, ../../../web/sass/_body.scss */
+  h1:after {
+    top: 95px;
+  }
+}
 
-/* line 48, ../../../web/sass/_body.scss */
+/* line 59, ../../../web/sass/_body.scss */
 .fa-1 {
   padding: 0 10px;
 }
 
-/* line 52, ../../../web/sass/_body.scss */
+/* line 63, ../../../web/sass/_body.scss */
 .bordered {
   border: 1px solid #efefef;
 }
 
-/* line 56, ../../../web/sass/_body.scss */
+/* line 67, ../../../web/sass/_body.scss */
 .home-block > div > div {
   margin-top: 30px;
   padding: 0 30px 30px 30px;
 }
+@media screen and (max-width: 480px) {
+  /* line 67, ../../../web/sass/_body.scss */
+  .home-block > div > div {
+    padding: 0;
+  }
+}
 
-/* line 62, ../../../web/sass/_body.scss */
+/* line 77, ../../../web/sass/_body.scss */
 .etoile {
   display: inline-block;
   background: no-repeat center center;
@@ -110,7 +133,7 @@ h1:after {
     }*/
 }
 
-/* line 79, ../../../web/sass/_body.scss */
+/* line 94, ../../../web/sass/_body.scss */
 .header-form {
   height: 240px;
   background: url(../web/images/services_1.jpg) no-repeat 0px -25px;
@@ -119,7 +142,7 @@ h1:after {
   margin-top: 20px;
   box-sizing: border-box;
 }
-/* line 87, ../../../web/sass/_body.scss */
+/* line 102, ../../../web/sass/_body.scss */
 .header-form h2 {
   line-height: 110px;
   color: white;
@@ -127,7 +150,7 @@ h1:after {
   background-color: rgba(0, 0, 0, 0.2);
 }
 @media screen and (max-width: 430px) {
-  /* line 79, ../../../web/sass/_body.scss */
+  /* line 94, ../../../web/sass/_body.scss */
   .header-form {
     margin-bottom: 0px !important;
     background-position: 0 0;
@@ -135,7 +158,7 @@ h1:after {
   }
 }
 
-/* line 100, ../../../web/sass/_body.scss */
+/* line 115, ../../../web/sass/_body.scss */
 .btn.btn-lp {
   background-color: white;
   border: 1px solid transparent;
@@ -147,12 +170,12 @@ h1:after {
   transition: all 0.3s;
   text-transform: uppercase;
 }
-/* line 110, ../../../web/sass/_body.scss */
+/* line 125, ../../../web/sass/_body.scss */
 .btn.btn-lp:hover {
   border: 1px solid #151515;
 }
 
-/* line 114, ../../../web/sass/_body.scss */
+/* line 129, ../../../web/sass/_body.scss */
 .btn.btn-lp-action {
   background-color: black;
   color: white;
@@ -163,42 +186,42 @@ h1:after {
   transition: all 0.3s;
   text-transform: uppercase;
 }
-/* line 123, ../../../web/sass/_body.scss */
+/* line 138, ../../../web/sass/_body.scss */
 .btn.btn-lp-action:hover {
   background-color: #333333;
 }
 
-/* line 127, ../../../web/sass/_body.scss */
+/* line 142, ../../../web/sass/_body.scss */
 a {
   color: #151515;
   text-decoration: underline;
 }
-/* line 130, ../../../web/sass/_body.scss */
+/* line 145, ../../../web/sass/_body.scss */
 a:hover {
   color: #151515;
 }
 
-/* line 135, ../../../web/sass/_body.scss */
+/* line 150, ../../../web/sass/_body.scss */
 .icons a {
   text-decoration: none;
   margin: 3px 48px 0 0;
   display: inline-block;
 }
 
-/* line 141, ../../../web/sass/_body.scss */
+/* line 156, ../../../web/sass/_body.scss */
 .commentaire {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-/* line 145, ../../../web/sass/_body.scss */
+/* line 160, ../../../web/sass/_body.scss */
 .commentaire textarea {
   border-radius: 0;
   -webkit-border-radius: 0;
   border-color: #151515;
 }
 
-/* line 150, ../../../web/sass/_body.scss */
+/* line 165, ../../../web/sass/_body.scss */
 #step2, #step3, #step4, #step5, #step6 {
   display: none;
 }
