@@ -53,39 +53,62 @@ hr {
   border-color: #151515 !important;
 }
 
+/* line 27, ../../../web/sass/_body.scss */
+.etoiles_block {
+  margin: 20px 0 0 0;
+}
+
 h1 {
   font-size: 28px !important;
   margin: 25px 0 0 0 !important;
 }
-/* line 31, ../../../web/sass/_body.scss */
+@media screen and (max-width: 480px) {
+  /* line 30, ../../../web/sass/_body.scss */
+  h1 {
+    font-size: 24px !important;
+  }
+}
+/* line 38, ../../../web/sass/_body.scss */
 h1.decorate {
   padding-bottom: 10px;
   border-bottom: solid 1px #ababab;
 }
-/* line 36, ../../../web/sass/_body.scss */
+/* line 43, ../../../web/sass/_body.scss */
 h1:after {
   content: '';
   width: 60px;
   height: 3px;
   background: #000;
   position: absolute;
-  top: 110px;
+  top: 99px;
   left: 50%;
   margin-left: -30px;
 }
+@media screen and (max-width: 480px) {
+  /* line 43, ../../../web/sass/_body.scss */
+  h1:after {
+    top: 95px;
+  }
+}
 
-/* line 48, ../../../web/sass/_body.scss */
+/* line 59, ../../../web/sass/_body.scss */
 .fa-1 {
   padding: 0 10px;
 }
-
 .bordered {
   border: 1px solid #efefef;
 }
 
+
 .home-block > div > div {
   margin-top: 30px;
   padding: 0 30px 30px 30px;
+}
+@media screen and (max-width: 480px) {
+  /* line 67, ../../../web/sass/_body.scss */
+  .home-block > div > div {
+    padding: 0;
+  }
 }
 
 
@@ -122,13 +145,14 @@ h1:after {
   background-color: rgba(0, 0, 0, 0.2);
 }
 @media screen and (max-width: 430px) {
-  /* line 79, ../../../web/sass/_body.scss */
+  /* line 94, ../../../web/sass/_body.scss */
   .header-form {
     margin-bottom: 0px !important;
     background-position: 0 0;
     height: 150px;
   }
 }
+
 
 .btn.btn-lp {
   background-color: white;
@@ -141,7 +165,6 @@ h1:after {
   transition: all 0.3s;
   text-transform: uppercase;
 }
-
 
 .btn.btn-lp:hover {
   border: 1px solid #151515;
@@ -173,8 +196,6 @@ a:hover {
   color: #151515;
 }
 
-
-/* line 135, ../../../web/sass/_body.scss */
 .icons a {
   text-decoration: none;
   margin: 3px 48px 0 0;
@@ -193,8 +214,6 @@ a:hover {
   -webkit-border-radius: 0;
   border-color: #151515;
 }
-
-
 
 #step2, #step3, #step4, #step5, #step6 {
   display: none;
