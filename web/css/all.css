@@ -23,7 +23,7 @@ body {
   color: #151515;
   font-family: Arial, sans-serif;
   padding-top: 50px;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 /* line 8, ../..//web/sass/_body.scss */
@@ -219,7 +219,10 @@ a:hover {
   display: none;
 }
 
-/* line 1, ../..//web/sass/_nav.scss */
+h4 {
+  font-size: 16px !important;
+}
+
 .nav-wrap {
   background-color: #ffffff;
   position: absolute;
