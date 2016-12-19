@@ -98,6 +98,10 @@ class HomeController extends Controller
 
         $dateCommande = $date[2].'-'.$date[1].'-'.$date[0];
 
+        if(count($date) < 2 ){
+            $dateCommande = $request->get('d');
+        }
+
         $dateCommande = new \DateTime($dateCommande);
 
         $client = $em->getRepository('AppBundle:Client')->findOneBy(array('hash' => $hash, 'dateCommande' => $dateCommande));

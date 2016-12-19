@@ -18,9 +18,11 @@ class ExportCronService
 
   public function createExportClientCSVFile()
   {
+    $date = new \DateTime();
+    $date = $date->format('Ymd');
     
-    @unlink('D:\wamp\www\StoreApp\web\export\export.csv');
-    $results = $this->em->getRepository('AppBundle:Client')->findAll();
+    @rename('D:\wamp\www\StoreApp\web\export\export.csv', 'D:\wamp\www\StoreApp\web\export\export_'.$date.'.csv');
+    $results = $this->em->getRepository('AppBundle:Client')->getDailyClient();
 
     //$results = array_pop($results);
 
@@ -101,11 +103,11 @@ class ExportCronService
         $date1,
         $date2,
         $date3,
-        $row->getCommentaire1(),
-        $row->getCommentaire2(),
-        $row->getCommentaire3(),
-        $row->getCommentaire4(),
-        $row->getCommentaire5(),
+        str_replace("\r", str_replace("\r\n", str_replace("\n", "", $row->getCommentaire1() ) ) ),
+        str_replace("\r", str_replace("\r\n", str_replace("\n", "", $row->getCommentaire2() ) ) ),
+        str_replace("\r", str_replace("\r\n", str_replace("\n", "", $row->getCommentaire3() ) ) ),
+        str_replace("\r", str_replace("\r\n", str_replace("\n", "", $row->getCommentaire4() ) ) ),
+        str_replace("\r", str_replace("\r\n", str_replace("\n", "", $row->getCommentaire5() ) ) ),
         $date4
         ),'|');
     }

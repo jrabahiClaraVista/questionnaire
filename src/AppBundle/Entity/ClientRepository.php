@@ -13,5 +13,24 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  */
 class ClientRepository extends \Doctrine\ORM\EntityRepository
 {
-	
+	public function getDailyClient()
+	{
+		$date1 = new \DateTime('now');
+		$date2 = new \DateTime('tomorrow');
+
+		$date1->setTime(0,0);
+		$date2->setTime(0,0);
+
+
+		$qb = $this->createQueryBuilder('c')
+			->where('c.createdAt >= :date1')
+			->andWhere('c.createdAt < :date2')
+		  	->setParameter('date1', $date1)
+		  	->setParameter('date2', $date2)
+		;
+
+		return $qb
+			->getQuery()
+			->getResult();
+	}
 }
