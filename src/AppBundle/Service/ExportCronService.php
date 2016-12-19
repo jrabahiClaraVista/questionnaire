@@ -103,11 +103,11 @@ class ExportCronService
         $date1,
         $date2,
         $date3,
-        str_replace("\r", str_replace("\r\n", str_replace("\n", "", $row->getCommentaire1() ) ) ),
-        str_replace("\r", str_replace("\r\n", str_replace("\n", "", $row->getCommentaire2() ) ) ),
-        str_replace("\r", str_replace("\r\n", str_replace("\n", "", $row->getCommentaire3() ) ) ),
-        str_replace("\r", str_replace("\r\n", str_replace("\n", "", $row->getCommentaire4() ) ) ),
-        str_replace("\r", str_replace("\r\n", str_replace("\n", "", $row->getCommentaire5() ) ) ),
+        str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire1() ) ) ) ),
+        str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire2() ) ) ) ),
+        str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire3() ) ) ) ),
+        str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire4() ) ) ) ),
+        str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire5() ) ) ) ),
         $date4
         ),'|');
     }
