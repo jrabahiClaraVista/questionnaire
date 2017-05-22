@@ -12,7 +12,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Client
  *
- * @ORM\Table(name="app_client")
+ * @ORM\Table(name="app_client", uniqueConstraints={
+ *      @ORM\UniqueConstraint(name="UNIQUE_hash_date", columns={"hash", "date_commande"})
+ * })
  * @ORM\Entity(repositoryClass="AppBundle\Entity\ClientRepository")
  * @ORM\HasLifecycleCallbacks()
  */

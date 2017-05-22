@@ -15,18 +15,38 @@ class ClientRepository extends \Doctrine\ORM\EntityRepository
 {
 	public function getDailyClient()
 	{
-		$date1 = new \DateTime('now');
-		$date2 = new \DateTime('tomorrow');
+		$now =  new \DateTime('now');
 
-		$date1->setTime(0,0);
-		$date2->setTime(0,0);
+		$date_check1 =  new \DateTime('now');
+		$date_check2 =  new \DateTime('now');
+
+		$date_check1->setTime(0,0);
+		$date_check2->setTime(1,0);
+		
+
+		if ( ($now >= $date_check1) && ($now <= $date_check2) )
+	    {
+	      	$today = new \DateTime('-1 days');
+			$tomorrow = new \DateTime('now');
+
+			$today->setTime(0,0);
+			$tomorrow->setTime(0,0);
+	    }
+	    else
+	    {
+	      	$today = new \DateTime('now');
+			$tomorrow = new \DateTime('tomorrow');
+
+			$today->setTime(0,0);
+			$tomorrow->setTime(0,0); 
+	    }
 
 
 		$qb = $this->createQueryBuilder('c')
-			->where('c.createdAt >= :date1')
-			->andWhere('c.createdAt < :date2')
-		  	->setParameter('date1', $date1)
-		  	->setParameter('date2', $date2)
+			->where('c.createdAt >= :today')
+			->andWhere('c.createdAt < :tomorrow')
+		  	->setParameter('today', $today)
+		  	->setParameter('tomorrow', $tomorrow)
 		;
 
 		return $qb

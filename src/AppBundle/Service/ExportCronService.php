@@ -17,9 +17,26 @@ class ExportCronService
   }
 
   public function createExportClientCSVFile()
-  {
-    $date = new \DateTime();
-    $date = $date->format('Ymd');
+  { 
+    $now = new \DateTime();
+    
+    $date_check1 =  new \DateTime();
+    $date_check2 =  new \DateTime();
+
+    $date_check1->setTime(0,0);
+    $date_check2->setTime(1,0);
+    
+
+    if ( ($now >= $date_check1) && ($now <= $date_check2) )
+    {
+      $date = new \DateTime('-1 days');
+      $date = $date->format('Ymd');
+    }
+    else
+    {
+      $date = new \DateTime();
+      $date = $date->format('Ymd');
+    }
     
     @rename('D:\wamp\www\StoreApp\web\export\export.csv', 'D:\wamp\www\StoreApp\web\export\export_'.$date.'.csv');
     $results = $this->em->getRepository('AppBundle:Client')->getDailyClient();
@@ -53,7 +70,7 @@ class ExportCronService
     {
       if( $row->getDateCommande() instanceof \DateTime )
       {
-        $dateC = $row->getDateCommande()->format("Y-m-d H:I:s");
+        $dateC = $row->getDateCommande()->format("Y-m-d H:i:s");
       }
       else{
         $dateC = null;
@@ -61,7 +78,7 @@ class ExportCronService
 
       if( $row->getCreatedAt() instanceof \DateTime )
       {
-        $date1 = $row->getCreatedAt()->format("Y-m-d H:I:s");
+        $date1 = $row->getCreatedAt()->format("Y-m-d H:i:s");
       }
       else{
         $date1 = null;
@@ -69,7 +86,7 @@ class ExportCronService
 
       if( $row->getModifiedAt() instanceof \DateTime )
       {
-        $date2 = $row->getModifiedAt()->format("Y-m-d H:I:s");
+        $date2 = $row->getModifiedAt()->format("Y-m-d H:i:s");
       }
       else{
         $date2 = null;
@@ -77,7 +94,7 @@ class ExportCronService
 
       if( $row->getLastVisitAt() instanceof \DateTime )
       {
-        $date3 = $row->getLastVisitAt()->format("Y-m-d H:I:s");
+        $date3 = $row->getLastVisitAt()->format("Y-m-d H:i:s");
       }
       else{
         $date3 = null;
@@ -85,7 +102,7 @@ class ExportCronService
 
       if( $row->getValidatedAt() instanceof \DateTime )
       {
-        $date4 = $row->getValidatedAt()->format("Y-m-d H:I:s");
+        $date4 = $row->getValidatedAt()->format("Y-m-d H:i:s");
       }
       else{
         $date4 = null;

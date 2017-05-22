@@ -46,7 +46,15 @@ class HomeController extends Controller
                 );
         }
 
-        $client->setLastVisitAt(new \DateTime());            
+        $client_check = $em->getRepository('AppBundle:Client')->findOneBy(array('hash' => $client->hash, 'dateCommande' => $client->dateCommande));
+
+        if($client_check != null){
+            $client = $client_check;
+            $client->setLastVisitAt(new \DateTime());
+        }
+        else{
+            $client->setLastVisitAt(new \DateTime());
+        }
         $em->flush();
 
         $form = $this->createForm(new ClientType(), $client);
