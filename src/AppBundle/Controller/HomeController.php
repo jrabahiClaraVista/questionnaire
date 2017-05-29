@@ -46,7 +46,7 @@ class HomeController extends Controller
                 );
         }
 
-        $client_check = $em->getRepository('AppBundle:Client')->findOneBy(array('hash' => $client->hash, 'dateCommande' => $client->dateCommande));
+        $client_check = $em->getRepository('AppBundle:Client')->findOneBy(array('hash' => $client->getHash(), 'dateCommande' => $client->getDateCommande()));
 
         if($client_check != null){
             $client = $client_check;
