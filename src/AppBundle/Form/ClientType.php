@@ -16,7 +16,28 @@ class ClientType extends AbstractType
     {
         $builder
             ->add('hash', 'hidden')
-            ->add('question1', 'hidden', array('required' => false) )
+            ->add('question1', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
+                'choices' => array(
+                      '1'   => 1,
+                      '2'   => 2,
+                      '3'   => 3,
+                      '4'   => 4,
+                      '5'   => 5,
+                      '6'   => 6,
+                      '7'   => 7,
+                      '8'   => 8,
+                      '9'   => 9,
+                      '10'   => 10
+                  ),
+                'label' => false,
+                'expanded' => true,
+                'multiple' => false,
+                'choices_as_values' => true,
+                'required' => false,
+                'empty_value' => false,
+                'data' => 1,
+                )
+              )
             ->add('commentaire1', 'textarea', array('required' => false) )
             ->add('question2', 'hidden', array('required' => false) )
             ->add('commentaire2', 'textarea', array('required' => false) )
@@ -26,11 +47,14 @@ class ClientType extends AbstractType
             ->add('commentaire4', 'textarea', array('required' => false) )
             ->add('question5', 'hidden', array('required' => false) )
             ->add('commentaire5', 'textarea', array('required' => false) )
+            ->add('question6', 'hidden', array('required' => false) )
+            ->add('commentaire6', 'textarea', array('required' => false) )
             ->add('Envoyer', 'submit')
             ->add('Suivant1', 'submit')
             ->add('Suivant2', 'submit')
             ->add('Suivant3', 'submit')
             ->add('Suivant4', 'submit')
+            ->add('Suivant5', 'submit')
         ;
     }
     

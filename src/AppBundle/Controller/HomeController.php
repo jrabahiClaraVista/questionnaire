@@ -70,13 +70,16 @@ class HomeController extends Controller
             $client->setQuestion3($data->getQuestion3());
             $client->setQuestion4($data->getQuestion4());
             $client->setQuestion5($data->getQuestion5());
+            $client->setQuestion6($data->getQuestion6());
             $client->setCommentaire1($data->getCommentaire1());
             $client->setCommentaire2($data->getCommentaire2());
             $client->setCommentaire3($data->getCommentaire3());
             $client->setCommentaire4($data->getCommentaire4());
             $client->setCommentaire5($data->getCommentaire5());
+            $client->setCommentaire6($data->getCommentaire6());
 
-            if( $data->getQuestion1() > 0 && $data->getQuestion2() > 0 && $data->getQuestion3() > 0 && $data->getQuestion4() > 0 && $data->getQuestion5() > 0 )
+            if(     $data->getQuestion1() != 0 && $data->getQuestion2() != 0 && $data->getQuestion3() != 0
+                &&  $data->getQuestion4() != 0 && $data->getQuestion5() != 0 && $data->getQuestion6() != 0 )
             {
                 $client->setValidatedAt( new \DateTime() );
             }
@@ -85,6 +88,7 @@ class HomeController extends Controller
 
             if($request->getMethod() == 'POST'){
                 return $this->render('AppBundle:Home:merci.html.twig', array(
+                'client' => $client
                     )
                 );
             }
@@ -112,12 +116,23 @@ class HomeController extends Controller
 
         $dateCommande = new \DateTime($dateCommande);
 
+        $type = $request->get('t');
+
         $client = $em->getRepository('AppBundle:Client')->findOneBy(array('hash' => $hash, 'dateCommande' => $dateCommande));
 
         if ($client == null) {
             $client = new Client();
             $client->setHash($hash);
             $client->setDateCommande($dateCommande);
+
+            if($type == 'm'){
+                $client->setType("Montre");
+            }
+            elseif($type == 'pb'){
+                $client->setType("Pile/Bracelet");
+                $client->setQuestion1(-1);
+                $client->setQuestion2(-1);
+            }
 
             $em->persist($client);
             $em->flush();

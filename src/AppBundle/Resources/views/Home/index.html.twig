@@ -4,6 +4,7 @@
 	<h1 class="text-center decorate">Questionnaire de satisfaction</h1>	
 
 	<div id="form_body">
+		{#% form_theme form 'AppBundle:Form:radio_btn.html.twig' %#}
 		{{ form_start(form, {'attr': {'class': 'form-horizontal', 'id': 'submit-form'}}) }}
 			{{ form_errors(form) }}
 		<div class="form_error"></div>
@@ -17,22 +18,26 @@
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
+						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 					</p>
 					<div class="header-form">
 					</div>
 
-					<h4 class="text-left" style="text-transform:uppercase;">Question 1/5</h4>
+					<h4 class="text-left" style="text-transform:uppercase;">Question 1/6</h4>
 					<p>
-						Quelle note donneriez-vous à<br />
-						<strong>VOTRE ACCUEIL EN BOUTIQUE</strong> ?
+						Quelle est la probabilité que vous recommandiez<br />
+						ce magasin à un ami ou proche ?
 					</p>
 
 					<div class="etoiles_block">
-						<span id="question1_1" class="etoile etoile1" number="1" value="1"></span>
-						<span id="question1_2" class="etoile etoile2" number="1" value="2"></span>
-						<span id="question1_3" class="etoile etoile3" number="1" value="3"></span>
-						<span id="question1_4" class="etoile etoile4" number="1" value="4"></span>
-						<span id="question1_5" class="etoile etoile5" number="1" value="5"></span>
+						<div class="radio1">
+							{% for var in form.question1 %}
+							<div style="display:inline-block; width:64px; text-align:center">
+					            {{ form_label(var) }}<br />
+					            {{ form_widget(var) }}
+					        </div>
+					        {% endfor %}
+						</div>
 					</div>
 					<div class="error col-xs-12" style="margin:10px 0;display:none;">
 						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
@@ -41,13 +46,13 @@
 					</div>
 					<div class="col-xs-12 text-left commentaire">
 						<label for="appbundle_client[commentaire3]">
-							Commentaire :
+							Pourquoi ?
 						</label>
 						<div>
 							{{ form_widget(form.commentaire1) }}
 						</div>
 					</div>
-					<div>
+					<div style="clear:both">
 						{{ form_widget(form.Suivant1, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
 					</div>
 				</div>
@@ -62,14 +67,15 @@
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
+						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 					</p>
 					<div class="header-form">
 					</div>
-					<h4 class="text-left" style="text-transform:uppercase;">Question 2/5</h4>
+
+					<h4 class="text-left" style="text-transform:uppercase;">Question 2/6</h4>
 					<p>
-						Quelle note donneriez-vous au<br />
-						choix de <strong>PRODUITS PROPOSÉS</strong><br />
-						(marques, styles, ...) ?
+						Quelle note donneriez-vous à<br />
+						<strong>VOTRE ACCUEIL EN BOUTIQUE</strong> ?
 					</p>
 
 					<div class="etoiles_block">
@@ -84,7 +90,6 @@
 							Veuillez renseigner une note ci-dessus pour passer à la question suivante
 						</p>
 					</div>
-					
 					<div class="col-xs-12 text-left commentaire">
 						<label for="appbundle_client[commentaire3]">
 							Commentaire :
@@ -109,15 +114,14 @@
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
+						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 					</p>
 					<div class="header-form">
 					</div>
-					<h4 class="text-left" style="text-transform:uppercase;">Question 3/5</h4>
+					<h4 class="text-left" style="text-transform:uppercase;">Question 3/6</h4>
 					<p>
-						Quelle note donneriez-vous à<br />
-						<strong>LA PRÉSENTATION DES PRODUITS</strong><br />
-						en boutique (vitrine, mise en avant,<br />
-						merchandising, ...) ?
+						Quelle note donneriez-vous au<br />
+						<strong style="text-transform:uppercase;">temps d'attente avant la prise en charge</strong> ?
 					</p>
 
 					<div class="etoiles_block">
@@ -144,7 +148,7 @@
 					<div>
 						<button id="prev3" type="button" class="btn btn-lp-action">Précédent</button>
 						{{ form_widget(form.Suivant3, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
-					</div>			
+					</div>
 				</div>
 			</div>
 		</div>
@@ -157,15 +161,15 @@
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
+						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 					</p>
 					<div class="header-form">
 					</div>
-					<h4 class="text-left" style="text-transform:uppercase;">Question 4/5</h4>
+					<h4 class="text-left" style="text-transform:uppercase;">Question 4/6</h4>
 					<p>
 						Quelle note donneriez-vous à<br />
-						<strong>VOTRE EXPERIENCE D’ACHAT</strong><br />
-						(conseils, temps d’attente, services<br />
-						proposés,...) ?
+						<strong style="text-transform:uppercase;">la présentation des produits</strong><br />
+						(vitrines, merchandising...) ?
 					</p>
 
 					<div class="etoiles_block">
@@ -192,7 +196,7 @@
 					<div>
 						<button id="prev4" type="button" class="btn btn-lp-action">Précédent</button>
 						{{ form_widget(form.Suivant4, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
-					</div>
+					</div>			
 				</div>
 			</div>
 		</div>
@@ -205,13 +209,14 @@
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
+						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 					</p>
 					<div class="header-form">
 					</div>
-					<h4 class="text-left" style="text-transform:uppercase;">Question 5/5</h4>
+					<h4 class="text-left" style="text-transform:uppercase;">Question 5/6</h4>
 					<p>
-						Recommanderiez-vous cette boutique<br />
-						<strong>À VOTRE ENTOURAGE</strong> ?
+						Quelle note donneriez-vous à<br />
+						<strong style="text-transform:uppercase;">au choix des produits</strong> (marques, styles...) ?
 					</p>
 
 					<div class="etoiles_block">
@@ -223,7 +228,7 @@
 					</div>
 					<div class="error col-xs-12" style="margin:10px 0;display:none;">
 						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
-							Veuillez renseigner une note ci-dessus pour valider vos réponses
+							Veuillez renseigner une note ci-dessus pour passer à la question suivante
 						</p>
 					</div>
 					
@@ -237,12 +242,60 @@
 					</div>
 					<div>
 						<button id="prev5" type="button" class="btn btn-lp-action">Précédent</button>
-						{{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-lp'} }) }}
+						{{ form_widget(form.Suivant5, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
 					</div>
 				</div>
 			</div>
 		</div>
 		<div id="step6" class="col-md-10 col-md-offset-1 col-xs-12 home-block">
+			<div>
+				<div class="col-xs-12 text-center">
+					<p class="text-center">
+						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
+						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
+						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
+						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
+						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
+						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
+					</p>
+					<div class="header-form">
+					</div>
+					<h4 class="text-left" style="text-transform:uppercase;">Question 6/6</h4>
+					<p>
+						Quelle note donneriez-vous à<br />
+						<strong style="text-transform:uppercase;">votre expérience d'achat</strong><br />
+						(conseils, services proposés) ?
+					</p>
+
+					<div class="etoiles_block">
+						<span id="question6_1" class="etoile etoile1" number="6" value="1"></span>
+						<span id="question6_2" class="etoile etoile2" number="6" value="2"></span>
+						<span id="question6_3" class="etoile etoile3" number="6" value="3"></span>
+						<span id="question6_4" class="etoile etoile4" number="6" value="4"></span>
+						<span id="question6_5" class="etoile etoile5" number="6" value="5"></span>
+					</div>
+					<div class="error col-xs-12" style="margin:10px 0;display:none;">
+						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
+							Veuillez renseigner une note ci-dessus pour valider vos réponses
+						</p>
+					</div>
+					
+					<div class="col-xs-12 text-left commentaire">
+						<label for="appbundle_client[commentaire3]">
+							Commentaire :
+						</label>
+						<div>
+							{{ form_widget(form.commentaire6) }}
+						</div>
+					</div>
+					<div>
+						<button id="prev6" type="button" class="btn btn-lp-action">Précédent</button>
+						{{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-lp'} }) }}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="step7" class="col-md-10 col-md-offset-1 col-xs-12 home-block">
 			<div>
 				<div class="col-xs-12 text-center">
 					<div class="header-form">
@@ -290,7 +343,7 @@
 			$('form').on('submit', function (e) {
 		        e.preventDefault();
 
-		        if( $("#appbundle_client_question1").val() != 0 || $("#appbundle_client_question2").val() != 0 || $("#appbundle_client_question3").val() != 0 || $("#appbundle_client_question4").val() != 0|| $("#appbundle_client_question5").val() != 0 ) {
+		        if( $("#appbundle_client_question1").val() != 0 || $("#appbundle_client_question2").val() != 0 || $("#appbundle_client_question3").val() != 0 || $("#appbundle_client_question4").val() != 0 || $("#appbundle_client_question5").val() != 0 ) {
 		 
 			        $.ajax({
 			            type: $(this).attr('method'),
@@ -320,32 +373,126 @@
 			/*
 				Init
 			*/
-			var q1 = $("#appbundle_client_question1");
+			{% if client.question1 == 1 %}
+				$("#appbundle_client_question1_0").prop('checked', true);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', false);
+			{% elseif  client.question1 == 2 %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', true);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', false);
+			{% elseif  client.question1 == 3 %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', true);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', false);
+			{% elseif  client.question1 == 4 %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', true);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', false);
+			{% elseif  client.question1 == 5 %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', true);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', false);
+			{% elseif  client.question1 == 6 %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', true);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', false);
+			{% elseif  client.question1 == 7 %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', true);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', false);
+			{% elseif  client.question1 == 8 %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', true);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', false);
+			{% elseif  client.question1 == 9 %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', true);
+				$("#appbundle_client_question1_9").prop('checked', false);
+			{% elseif  client.question1 == 10 %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', true);
+			{% endif %}
+
+
 			var q2 = $("#appbundle_client_question2");
 			var q3 = $("#appbundle_client_question3");
 			var q4 = $("#appbundle_client_question4");
 			var q5 = $("#appbundle_client_question5");
+			var q6 = $("#appbundle_client_question6");
 
-			switch(q1.val())
-		 	{
-		 		case "1":
-	 				etoile1(1);
-	 			break;
-	 			case "2":
-	 				etoile2(1);
-	 			break;
-	 			case "3":
-	 				etoile3(1);
-	 			break;
-	 			case "4":
-	 				etoile4(1);
-	 			break;
-	 			case "5":
-	 				etoile5(1);
-	 			break;
-		 	}
-		 	
-		 	switch(q2.val())
+			switch(q2.val())
 		 	{
 		 		case "1":
 	 				etoile1(2);
@@ -420,6 +567,25 @@
 	 				etoile5(5);
 	 			break;
 		 	}
+		 	
+		 	switch(q6.val())
+		 	{
+		 		case "1":
+	 				etoile1(6);
+	 			break;
+	 			case "2":
+	 				etoile2(6);
+	 			break;
+	 			case "3":
+	 				etoile3(6);
+	 			break;
+	 			case "4":
+	 				etoile4(6);
+	 			break;
+	 			case "5":
+	 				etoile5(6);
+	 			break;
+		 	}
 
 		 	/*
 		 		Over
@@ -427,9 +593,6 @@
 		 	$(".etoile1").on('mouseover', function(){
 		 		switch($(this).attr('number'))
 		 		{
-		 			case "1":
-		 				etoile1(1);
-		 			break;
 		 			case "2":
 		 				etoile1(2);
 		 			break;
@@ -442,14 +605,14 @@
 		 			case "5":
 		 				etoile1(5);
 		 			break;
+		 			case "6":
+		 				etoile1(6);
+		 			break;
 		 		}
 		  	});
 		  	$(".etoile2").on('mouseover', function(){
 		  		switch($(this).attr('number'))
 		 		{
-		 			case "1":
-		 				etoile2(1);
-		 			break;
 		 			case "2":
 		 				etoile2(2);
 		 			break;
@@ -462,14 +625,14 @@
 		 			case "5":
 		 				etoile2(5);
 		 			break;
+		 			case "6":
+		 				etoile2(6);
+		 			break;
 		 		}
 		  	});
 		  	$(".etoile3").on('mouseover', function(){
 		  		switch($(this).attr('number'))
 		 		{
-		 			case "1":
-		 				etoile3(1);
-		 			break;
 		 			case "2":
 		 				etoile3(2);
 		 			break;
@@ -482,14 +645,14 @@
 		 			case "5":
 		 				etoile3(5);
 		 			break;
+		 			case "6":
+		 				etoile3(6);
+		 			break;
 		 		}
 		  	});
 		  	$(".etoile4").on('mouseover', function(){
 		  		switch($(this).attr('number'))
 		 		{
-		 			case "1":
-		 				etoile4(1);
-		 			break;
 		 			case "2":
 		 				etoile4(2);
 		 			break;
@@ -502,14 +665,14 @@
 		 			case "5":
 		 				etoile4(5);
 		 			break;
+		 			case "6":
+		 				etoile4(6);
+		 			break;
 		 		}
 		  	});
 		  	$(".etoile5").on('mouseover', function(){
 		  		switch($(this).attr('number'))
 		 		{
-		 			case "1":
-		 				etoile5(1);
-		 			break;
 		 			case "2":
 		 				etoile5(2);
 		 			break;
@@ -522,36 +685,16 @@
 		 			case "5":
 		 				etoile5(5);
 		 			break;
+		 			case "6":
+		 				etoile5(6);
+		 			break;
 		 		}
 		  	});
 
 		  	/**** OUT ****/
 
 		  	$(".etoile").on('mouseleave', function(){
-		 		switch(q1.val())
-			 	{
-			 		case "1":
-		 				etoile1(1);
-		 			break;
-		 			case "2":
-		 				etoile2(1);
-		 			break;
-		 			case "3":
-		 				etoile3(1);
-		 			break;
-		 			case "4":
-		 				etoile4(1);
-		 			break;
-		 			case "5":
-		 				etoile5(1);
-		 			break;
-		 			default:
-		 				etoile0(1);
-		 			break;
-			 	}
-		  	});
-		  	$(".etoile").on('mouseleave', function(){
-		  		switch(q2.val())
+		 		switch(q2.val())
 			 	{
 			 		case "1":
 		 				etoile1(2);
@@ -642,6 +785,29 @@
 		 			break;
 			 	}
 		  	});
+		  	$(".etoile").on('mouseleave', function(){
+		  		switch(q6.val())
+			 	{
+			 		case "1":
+		 				etoile1(6);
+		 			break;
+		 			case "2":
+		 				etoile2(6);
+		 			break;
+		 			case "3":
+		 				etoile3(6);
+		 			break;
+		 			case "4":
+		 				etoile4(6);
+		 			break;
+		 			case "5":
+		 				etoile5(6);
+		 			break;
+		 			default:
+		 				etoile0(6);
+		 			break;
+			 	}
+		  	});
 
 		  	/*
 				Click
@@ -649,10 +815,6 @@
 		  	$(".etoile1").on('click', function(){
 		  		switch($(this).attr('number'))
 		 		{
-		 			case "1":
-		 				$("#appbundle_client_question1").val(1);
-		 				etoile1(1);
-		 			break;
 		 			case "2":
 		 				$("#appbundle_client_question2").val(1);
 		 				etoile1(2);
@@ -669,15 +831,15 @@
 		 				$("#appbundle_client_question5").val(1);
 		 				etoile1(5);
 		 			break;
+		 			case "6":
+		 				$("#appbundle_client_question6").val(1);
+		 				etoile1(6);
+		 			break;
 		 		}
 		 	});
 		  	$(".etoile2").on('click', function(){
 		  		switch($(this).attr('number'))
 		 		{
-		 			case "1":
-		 				$("#appbundle_client_question1").val(2);
-		 				etoile2(1);
-		 			break;
 		 			case "2":
 		 				$("#appbundle_client_question2").val(2);
 		 				etoile2(2);
@@ -694,15 +856,15 @@
 		 				$("#appbundle_client_question5").val(2);
 		 				etoile2(5);
 		 			break;
+		 			case "6":
+		 				$("#appbundle_client_question6").val(2);
+		 				etoile2(6);
+		 			break;
 		 		}
 		 	});
 		  	$(".etoile3").on('click', function(){
 		  		switch($(this).attr('number'))
 		 		{
-		 			case "1":
-		 				$("#appbundle_client_question1").val(3);
-		 				etoile3(1);
-		 			break;
 		 			case "2":
 		 				$("#appbundle_client_question2").val(3);
 		 				etoile3(2);
@@ -719,15 +881,15 @@
 		 				$("#appbundle_client_question5").val(3);
 		 				etoile3(5);
 		 			break;
+		 			case "6":
+		 				$("#appbundle_client_question6").val(3);
+		 				etoile3(6);
+		 			break;
 		 		}
 		 	});
 		  	$(".etoile4").on('click', function(){
 		  		switch($(this).attr('number'))
 		 		{
-		 			case "1":
-		 				$("#appbundle_client_question1").val(4);
-		 				etoile4(1);
-		 			break;
 		 			case "2":
 		 				$("#appbundle_client_question2").val(4);
 		 				etoile4(2);
@@ -744,15 +906,15 @@
 		 				$("#appbundle_client_question5").val(4);
 		 				etoile4(5);
 		 			break;
+		 			case "6":
+		 				$("#appbundle_client_question6").val(4);
+		 				etoile4(6);
+		 			break;
 		 		}
 		 	});
 		  	$(".etoile5").on('click', function(){
 		  		switch($(this).attr('number'))
 		 		{
-		 			case "1":
-		 				$("#appbundle_client_question1").val(5);
-		 				etoile5(1);
-		 			break;
 		 			case "2":
 		 				$("#appbundle_client_question2").val(5);
 		 				etoile5(2);
@@ -768,6 +930,10 @@
 		 			case "5":
 		 				$("#appbundle_client_question5").val(5);
 		 				etoile5(5);
+		 			break;
+		 			case "6":
+		 				$("#appbundle_client_question6").val(5);
+		 				etoile5(6);
 		 			break;
 		 		}
 		 	});
@@ -905,19 +1071,27 @@
 		  			$(".error").hide();
 		  			$("#step4").hide();
 		  			$("#step5").show();
-			  		$("#one_text").html("1 étoiles = tout à fait improbable");
-			  		$("#two_text").html("5 étoiles = tout à fait probable");
 		  		}
 		  	});
-		  	$("#appbundle_client_Envoyer").on('click', function(){
+		  	$("#appbundle_client_Suivant5").on('click', function(){
 		  		if( $("#appbundle_client_question5").val() == 0 ) {
 		  			$(".error").show();
 		  		}
 		  		else{
 		  			$(".error").hide();
 		  			$("#step5").hide();
-		  			$("#legend").hide();
 		  			$("#step6").show();
+		  		}
+		  	});
+		  	$("#appbundle_client_Envoyer").on('click', function(){
+		  		if( $("#appbundle_client_question6").val() == 0 ) {
+		  			$(".error").show();
+		  		}
+		  		else{
+		  			$(".error").hide();
+		  			$("#step6").hide();
+		  			$("#legend").hide();
+		  			$("#step7").show();
 		  		}
 		  	});
 		  	$("#prev2").on('click', function(){
@@ -938,8 +1112,11 @@
 		  	$("#prev5").on('click', function(){
 		  		$("#step5").hide();
 		  		$("#step4").show();
-		  		$("#one_text").html("1 étoiles = vous n’êtes pas du tout satisfait");
-		  		$("#two_text").html("5 étoiles = vous etes très satisfaite");
+		  		$(".error").hide();
+		  	});
+		  	$("#prev6").on('click', function(){
+		  		$("#step6").hide();
+		  		$("#step5").show();
 		  		$(".error").hide();
 		  	});		  	
 
