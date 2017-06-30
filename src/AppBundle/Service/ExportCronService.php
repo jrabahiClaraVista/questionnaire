@@ -54,6 +54,7 @@ class ExportCronService
       'question3',
       'question4',
       'question5',
+      'question6',
       'created_at',
       'modified_at',
       'last_visit_at',
@@ -62,6 +63,8 @@ class ExportCronService
       'commentaire3',
       'commentaire4',
       'commentaire5',
+      'commentaire6',
+      'type',
       'validated_at'
       ),';');
 
@@ -117,6 +120,7 @@ class ExportCronService
         $row->getQuestion3(),
         $row->getQuestion4(),
         $row->getQuestion5(),
+        $row->getQuestion6(),
         $date1,
         $date2,
         $date3,
@@ -125,6 +129,8 @@ class ExportCronService
         str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire3() ) ) ) ),
         str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire4() ) ) ) ),
         str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire5() ) ) ) ),
+        str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire6() ) ) ) ),
+        $row->getType(),
         $date4
         ),'|');
     }

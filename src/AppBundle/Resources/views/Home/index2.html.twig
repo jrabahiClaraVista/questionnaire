@@ -17,8 +17,6 @@
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 					</p>
 					<div class="header-form">
 					</div>
@@ -66,8 +64,6 @@
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 					</p>
 					<div class="header-form">
 					</div>
@@ -113,8 +109,6 @@
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 					</p>
 					<div class="header-form">
 					</div>
@@ -152,107 +146,10 @@
 				</div>
 			</div>
 		</div>
-		<div id="step4" class="col-md-10 col-md-offset-1 col-xs-12 home-block">
-			<div>
-				<div class="col-xs-12 text-center">
-					<p class="text-center">
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-					</p>
-					<div class="header-form">
-					</div>
-					<h4 class="text-left" style="text-transform:uppercase;">Question 4/6</h4>
-					<p>
-						Quelle note donneriez-vous à<br />
-						<strong style="text-transform:uppercase;">la présentation des produits</strong><br />
-						(vitrines, merchandising...) ?
-					</p>
-
-					<div class="etoiles_block">
-						<span id="question4_1" class="etoile etoile1" number="4" value="1"></span>
-						<span id="question4_2" class="etoile etoile2" number="4" value="2"></span>
-						<span id="question4_3" class="etoile etoile3" number="4" value="3"></span>
-						<span id="question4_4" class="etoile etoile4" number="4" value="4"></span>
-						<span id="question4_5" class="etoile etoile5" number="4" value="5"></span>
-					</div>
-					<div class="error col-xs-12" style="margin:10px 0;display:none;">
-						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
-							Veuillez renseigner une note ci-dessus pour passer à la question suivante
-						</p>
-					</div>
-					
-					<div class="col-xs-12 text-left commentaire">
-						<label for="appbundle_client[commentaire3]">
-							Commentaire :
-						</label>
-						<div>
-							{{ form_widget(form.commentaire4) }}
-						</div>
-					</div>
-					<div>
-						<button id="prev4" type="button" class="btn btn-lp-action">Précédent</button>
-						{{ form_widget(form.Suivant4, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
-					</div>			
-				</div>
-			</div>
-		</div>
-		<div id="step5" class="col-md-10 col-md-offset-1 col-xs-12 home-block">
-			<div>
-				<div class="col-xs-12 text-center">
-					<p class="text-center">
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-					</p>
-					<div class="header-form">
-					</div>
-					<h4 class="text-left" style="text-transform:uppercase;">Question 5/6</h4>
-					<p>
-						Quelle note donneriez-vous à<br />
-						<strong style="text-transform:uppercase;">au choix des produits</strong> (marques, styles...) ?
-					</p>
-
-					<div class="etoiles_block">
-						<span id="question5_1" class="etoile etoile1" number="5" value="1"></span>
-						<span id="question5_2" class="etoile etoile2" number="5" value="2"></span>
-						<span id="question5_3" class="etoile etoile3" number="5" value="3"></span>
-						<span id="question5_4" class="etoile etoile4" number="5" value="4"></span>
-						<span id="question5_5" class="etoile etoile5" number="5" value="5"></span>
-					</div>
-					<div class="error col-xs-12" style="margin:10px 0;display:none;">
-						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
-							Veuillez renseigner une note ci-dessus pour passer à la question suivante
-						</p>
-					</div>
-					
-					<div class="col-xs-12 text-left commentaire">
-						<label for="appbundle_client[commentaire3]">
-							Commentaire :
-						</label>
-						<div>
-							{{ form_widget(form.commentaire5) }}
-						</div>
-					</div>
-					<div>
-						<button id="prev5" type="button" class="btn btn-lp-action">Précédent</button>
-						{{ form_widget(form.Suivant5, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
-					</div>
-				</div>
-			</div>
-		</div>
 		<div id="step6" class="col-md-10 col-md-offset-1 col-xs-12 home-block">
 			<div>
 				<div class="col-xs-12 text-center">
 					<p class="text-center">
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
@@ -488,8 +385,6 @@
 
 			var q2 = $("#appbundle_client_question2");
 			var q3 = $("#appbundle_client_question3");
-			var q4 = $("#appbundle_client_question4");
-			var q5 = $("#appbundle_client_question5");
 			var q6 = $("#appbundle_client_question6");
 
 			switch(q2.val())
@@ -527,44 +422,6 @@
 	 			break;
 	 			case "5":
 	 				etoile5(3);
-	 			break;
-		 	}
-		 	
-		 	switch(q4.val())
-		 	{
-		 		case "1":
-	 				etoile1(4);
-	 			break;
-	 			case "2":
-	 				etoile2(4);
-	 			break;
-	 			case "3":
-	 				etoile3(4);
-	 			break;
-	 			case "4":
-	 				etoile4(4);
-	 			break;
-	 			case "5":
-	 				etoile5(4);
-	 			break;
-		 	}
-		 	
-		 	switch(q5.val())
-		 	{
-		 		case "1":
-	 				etoile1(5);
-	 			break;
-	 			case "2":
-	 				etoile2(5);
-	 			break;
-	 			case "3":
-	 				etoile3(5);
-	 			break;
-	 			case "4":
-	 				etoile4(5);
-	 			break;
-	 			case "5":
-	 				etoile5(5);
 	 			break;
 		 	}
 		 	
@@ -1060,26 +917,6 @@
 		  		else{
 		  			$(".error").hide();
 		  			$("#step3").hide();
-		  			$("#step4").show();
-		  		}
-		  	});
-		  	$("#appbundle_client_Suivant4").on('click', function(){
-		  		if( $("#appbundle_client_question4").val() == 0 ) {
-		  			$(".error").show();
-		  		}
-		  		else{
-		  			$(".error").hide();
-		  			$("#step4").hide();
-		  			$("#step5").show();
-		  		}
-		  	});
-		  	$("#appbundle_client_Suivant5").on('click', function(){
-		  		if( $("#appbundle_client_question5").val() == 0 ) {
-		  			$(".error").show();
-		  		}
-		  		else{
-		  			$(".error").hide();
-		  			$("#step5").hide();
 		  			$("#step6").show();
 		  		}
 		  	});
@@ -1094,7 +931,6 @@
 		  			$("#step7").show();
 		  		}
 		  	});
-		  	
 		  	$("#prev2").on('click', function(){
 		  		$("#step2").hide();
 		  		$("#step1").show();
@@ -1105,19 +941,9 @@
 		  		$("#step2").show();
 		  		$(".error").hide();
 		  	});
-		  	$("#prev4").on('click', function(){
-		  		$("#step4").hide();
-		  		$("#step3").show();
-		  		$(".error").hide();
-		  	});
-		  	$("#prev5").on('click', function(){
-		  		$("#step5").hide();
-		  		$("#step4").show();
-		  		$(".error").hide();
-		  	});
 		  	$("#prev6").on('click', function(){
 		  		$("#step6").hide();
-		  		$("#step5").show();
+		  		$("#step3").show();
 		  		$(".error").hide();
 		  	});		  	
 

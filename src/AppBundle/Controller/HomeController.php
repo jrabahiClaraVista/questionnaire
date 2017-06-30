@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use AppBundle\Entity\Client;
 use AppBundle\Form\ClientType;
+use AppBundle\Form\Client2Type;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -57,7 +58,12 @@ class HomeController extends Controller
         }
         $em->flush();
 
-        $form = $this->createForm(new ClientType(), $client);
+        if($client->getType() == 'Montre'){
+            $form = $this->createForm(new ClientType(), $client);
+        }
+        else{
+            $form = $this->createForm(new Client2Type(), $client);
+        }
 
         $form->handleRequest($request);
 
@@ -94,11 +100,20 @@ class HomeController extends Controller
             }
         }
 
-        return $this->render('AppBundle:Home:index.html.twig', array(
-            'client' => $client,
-            'form'   => $form->createView()
-            )
-        );        
+        if($client->getType() == 'Montre'){
+            return $this->render('AppBundle:Home:index.html.twig', array(
+                'client' => $client,
+                'form'   => $form->createView()
+                )
+            );
+        }  
+       else{
+            return $this->render('AppBundle:Home:index2.html.twig', array(
+                'client' => $client,
+                'form'   => $form->createView()
+                )
+            );
+        }        
     }
 
     public function dateAction($hash, Request $request)
@@ -130,8 +145,8 @@ class HomeController extends Controller
             }
             elseif($type == 'pb'){
                 $client->setType("Pile/Bracelet");
-                $client->setQuestion1(-1);
-                $client->setQuestion2(-1);
+                $client->setQuestion4(-1);
+                $client->setQuestion5(-1);
             }
 
             $em->persist($client);
