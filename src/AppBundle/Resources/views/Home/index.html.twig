@@ -25,8 +25,8 @@
 
 					<h4 class="text-left" style="text-transform:uppercase;">Question 1/6</h4>
 					<p>
-						Quelle est la probabilité que vous recommandiez<br />
-						ce magasin à un ami ou proche ?
+						Quelle est la probabilité que<br />
+						<strong style="text-transform:uppercase;">vous recommandiez	ce magasin</strong> à un ami ou proche?
 					</p>
 
 					<div class="etoiles_block">
@@ -37,6 +37,14 @@
 					            {{ form_widget(var) }}
 					        </div>
 					        {% endfor %}
+						</div>
+					</div>
+					<div  id="legend1" class=" col-md-10 col-md-offset-1 col-xs-12">
+						<div class="col-xs-12 text-center"><br />
+							<p style="font-size:14px;">
+								<span id="one_text">0 : pas du tout probable</span><br />
+								<span id="two_text">10 : très probable</span>
+							</p>
 						</div>
 					</div>
 					<div class="error col-xs-12" style="margin:10px 0;display:none;">
@@ -215,7 +223,7 @@
 					</div>
 					<h4 class="text-left" style="text-transform:uppercase;">Question 5/6</h4>
 					<p>
-						Quelle note donneriez-vous à<br />
+						Quelle note donneriez-vous<br />
 						<strong style="text-transform:uppercase;">au choix des produits</strong> (marques, styles...) ?
 					</p>
 
@@ -324,11 +332,12 @@
 		{{ form_end(form) }}
 	</div>
 
-	<div  id="legend" class=" col-md-10 col-md-offset-1 col-xs-12">
+	
+	<div  id="legend2" style="display:none;" class=" col-md-10 col-md-offset-1 col-xs-12">
 		<div class="col-xs-12 text-center"><br />
 			<p style="font-size:14px;">
 				<span id="one_text">1 étoile = vous n’êtes pas du tout satisfait</span><br />
-				<span id="two_text">5 étoiles = vous etes très satisfait</span>
+				<span id="two_text">5 étoiles = vous êtes très satisfait</span>
 			</p>
 		</div>
 	</div>
@@ -373,8 +382,8 @@
 			/*
 				Init
 			*/
-			{% if client.question1 == 1 %}
-				$("#appbundle_client_question1_0").prop('checked', true);
+			{% if client.question1 is null %}
+				$("#appbundle_client_question1_0").prop('checked', false);
 				$("#appbundle_client_question1_1").prop('checked', false);
 				$("#appbundle_client_question1_2").prop('checked', false);
 				$("#appbundle_client_question1_3").prop('checked', false);
@@ -384,7 +393,20 @@
 				$("#appbundle_client_question1_7").prop('checked', false);
 				$("#appbundle_client_question1_8").prop('checked', false);
 				$("#appbundle_client_question1_9").prop('checked', false);
-			{% elseif  client.question1 == 2 %}
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif client.question1 == 0 and client.question1 is not null %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', false);
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif  client.question1 == 1 %}
 				$("#appbundle_client_question1_0").prop('checked', false);
 				$("#appbundle_client_question1_1").prop('checked', true);
 				$("#appbundle_client_question1_2").prop('checked', false);
@@ -395,7 +417,8 @@
 				$("#appbundle_client_question1_7").prop('checked', false);
 				$("#appbundle_client_question1_8").prop('checked', false);
 				$("#appbundle_client_question1_9").prop('checked', false);
-			{% elseif  client.question1 == 3 %}
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif  client.question1 == 2 %}
 				$("#appbundle_client_question1_0").prop('checked', false);
 				$("#appbundle_client_question1_1").prop('checked', false);
 				$("#appbundle_client_question1_2").prop('checked', true);
@@ -406,7 +429,8 @@
 				$("#appbundle_client_question1_7").prop('checked', false);
 				$("#appbundle_client_question1_8").prop('checked', false);
 				$("#appbundle_client_question1_9").prop('checked', false);
-			{% elseif  client.question1 == 4 %}
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif  client.question1 == 3 %}
 				$("#appbundle_client_question1_0").prop('checked', false);
 				$("#appbundle_client_question1_1").prop('checked', false);
 				$("#appbundle_client_question1_2").prop('checked', false);
@@ -417,7 +441,8 @@
 				$("#appbundle_client_question1_7").prop('checked', false);
 				$("#appbundle_client_question1_8").prop('checked', false);
 				$("#appbundle_client_question1_9").prop('checked', false);
-			{% elseif  client.question1 == 5 %}
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif  client.question1 == 4 %}
 				$("#appbundle_client_question1_0").prop('checked', false);
 				$("#appbundle_client_question1_1").prop('checked', false);
 				$("#appbundle_client_question1_2").prop('checked', false);
@@ -428,7 +453,8 @@
 				$("#appbundle_client_question1_7").prop('checked', false);
 				$("#appbundle_client_question1_8").prop('checked', false);
 				$("#appbundle_client_question1_9").prop('checked', false);
-			{% elseif  client.question1 == 6 %}
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif  client.question1 == 5 %}
 				$("#appbundle_client_question1_0").prop('checked', false);
 				$("#appbundle_client_question1_1").prop('checked', false);
 				$("#appbundle_client_question1_2").prop('checked', false);
@@ -439,7 +465,8 @@
 				$("#appbundle_client_question1_7").prop('checked', false);
 				$("#appbundle_client_question1_8").prop('checked', false);
 				$("#appbundle_client_question1_9").prop('checked', false);
-			{% elseif  client.question1 == 7 %}
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif  client.question1 == 6 %}
 				$("#appbundle_client_question1_0").prop('checked', false);
 				$("#appbundle_client_question1_1").prop('checked', false);
 				$("#appbundle_client_question1_2").prop('checked', false);
@@ -450,7 +477,8 @@
 				$("#appbundle_client_question1_7").prop('checked', false);
 				$("#appbundle_client_question1_8").prop('checked', false);
 				$("#appbundle_client_question1_9").prop('checked', false);
-			{% elseif  client.question1 == 8 %}
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif  client.question1 == 7 %}
 				$("#appbundle_client_question1_0").prop('checked', false);
 				$("#appbundle_client_question1_1").prop('checked', false);
 				$("#appbundle_client_question1_2").prop('checked', false);
@@ -461,7 +489,8 @@
 				$("#appbundle_client_question1_7").prop('checked', true);
 				$("#appbundle_client_question1_8").prop('checked', false);
 				$("#appbundle_client_question1_9").prop('checked', false);
-			{% elseif  client.question1 == 9 %}
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif  client.question1 == 8 %}
 				$("#appbundle_client_question1_0").prop('checked', false);
 				$("#appbundle_client_question1_1").prop('checked', false);
 				$("#appbundle_client_question1_2").prop('checked', false);
@@ -472,7 +501,8 @@
 				$("#appbundle_client_question1_7").prop('checked', false);
 				$("#appbundle_client_question1_8").prop('checked', true);
 				$("#appbundle_client_question1_9").prop('checked', false);
-			{% elseif  client.question1 == 10 %}
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif  client.question1 == 9 %}
 				$("#appbundle_client_question1_0").prop('checked', false);
 				$("#appbundle_client_question1_1").prop('checked', false);
 				$("#appbundle_client_question1_2").prop('checked', false);
@@ -483,6 +513,19 @@
 				$("#appbundle_client_question1_7").prop('checked', false);
 				$("#appbundle_client_question1_8").prop('checked', false);
 				$("#appbundle_client_question1_9").prop('checked', true);
+				$("#appbundle_client_question1_10").prop('checked', false);
+			{% elseif  client.question1 == 10 %}
+				$("#appbundle_client_question1_0").prop('checked', false);
+				$("#appbundle_client_question1_1").prop('checked', false);
+				$("#appbundle_client_question1_2").prop('checked', false);
+				$("#appbundle_client_question1_3").prop('checked', false);
+				$("#appbundle_client_question1_4").prop('checked', false);
+				$("#appbundle_client_question1_5").prop('checked', false);
+				$("#appbundle_client_question1_6").prop('checked', false);
+				$("#appbundle_client_question1_7").prop('checked', false);
+				$("#appbundle_client_question1_8").prop('checked', false);
+				$("#appbundle_client_question1_9").prop('checked', false);
+				$("#appbundle_client_question1_10").prop('checked', true);
 			{% endif %}
 
 
@@ -1031,15 +1074,32 @@
 		  	/*
 				Gestion affichage des blocs
 		  	*/
+		  	$("input[type=radio]").on('click', function(){
+		  		$("input[type=radio]").attr('ischeck', 0);
+		  		$(this).attr('ischeck',1);
+		  	});
 
 		  	$("#appbundle_client_Suivant1").on('click', function(){
-		  		if( $("#appbundle_client_question1").val() == 0 ) {
+		  		if( 
+		  			$("#appbundle_client_question1_0").prop("checked") == false &&
+		  			$("#appbundle_client_question1_1").prop("checked") == false &&
+		  			$("#appbundle_client_question1_2").prop("checked") == false &&
+		  			$("#appbundle_client_question1_3").prop("checked") == false &&
+		  			$("#appbundle_client_question1_4").prop("checked") == false &&
+		  			$("#appbundle_client_question1_5").prop("checked") == false &&
+		  			$("#appbundle_client_question1_6").prop("checked") == false &&
+		  			$("#appbundle_client_question1_7").prop("checked") == false &&
+		  			$("#appbundle_client_question1_8").prop("checked") == false &&
+		  			$("#appbundle_client_question1_9").prop("checked") == false &&
+		  			$("#appbundle_client_question1_10").prop("checked") == false  
+		  		) {
 		  			$(".error").show();
 		  		}
 		  		else{
-		  			console.log('ok');
 		  			$(".error").hide();
 		  			$("#step1").hide();
+		  			$("#legend1").hide();
+		  			$("#legend2").show();
 		  			$("#step2").show();
 		  		}
 		  	});
@@ -1090,7 +1150,7 @@
 		  		else{
 		  			$(".error").hide();
 		  			$("#step6").hide();
-		  			$("#legend").hide();
+		  			$("#legend2").hide();
 		  			$("#step7").show();
 		  		}
 		  	});
@@ -1099,6 +1159,8 @@
 		  		$("#step2").hide();
 		  		$("#step1").show();
 		  		$(".error").hide();
+	  			$("#legend2").hide();
+	  			$("#legend1").show();
 		  	});		  	
 		  	$("#prev3").on('click', function(){
 		  		$("#step3").hide();

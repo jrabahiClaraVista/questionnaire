@@ -140,7 +140,7 @@ class HomeController extends Controller
             $client->setHash($hash);
             $client->setDateCommande($dateCommande);
 
-            if($type == 'm'){
+            if($type == 'm' or $type == null){
                 $client->setType("Montre");
             }
             elseif($type == 'pb'){

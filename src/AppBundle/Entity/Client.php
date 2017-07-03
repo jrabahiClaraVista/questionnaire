@@ -46,7 +46,7 @@ class Client
     /**
      * @var integer
      *
-     * @ORM\Column(name="question1", type="integer")
+     * @ORM\Column(name="question1", type="integer", nullable=true)
      */
     private $question1;
 
@@ -175,7 +175,7 @@ class Client
         $this->lastVisitAt  = new \DateTime();
         $this->validatedAt  = null;
         //$this->dateCommande = new \DateTime();
-        $this->question1    = 0;
+        $this->question1    = null;
         $this->question2    = 0;
         $this->question3    = 0;
         $this->question4    = 0;

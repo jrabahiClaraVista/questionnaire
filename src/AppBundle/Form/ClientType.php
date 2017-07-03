@@ -18,6 +18,7 @@ class ClientType extends AbstractType
             ->add('hash', 'hidden')
             ->add('question1', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
                 'choices' => array(
+                      '0'   => 0,
                       '1'   => 1,
                       '2'   => 2,
                       '3'   => 3,
@@ -35,7 +36,6 @@ class ClientType extends AbstractType
                 'choices_as_values' => true,
                 'required' => false,
                 'empty_value' => false,
-                'data' => 1,
                 )
               )
             ->add('commentaire1', 'textarea', array('required' => false) )
