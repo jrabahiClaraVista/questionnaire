@@ -17,9 +17,26 @@ class ExportCronService
   }
 
   public function createExportClientCSVFile()
-  {
-    $date = new \DateTime();
-    $date = $date->format('Ymd');
+  { 
+    $now = new \DateTime();
+    
+    $date_check1 =  new \DateTime();
+    $date_check2 =  new \DateTime();
+
+    $date_check1->setTime(0,0);
+    $date_check2->setTime(1,0);
+    
+
+    if ( ($now >= $date_check1) && ($now <= $date_check2) )
+    {
+      $date = new \DateTime('-1 days');
+      $date = $date->format('Ymd');
+    }
+    else
+    {
+      $date = new \DateTime();
+      $date = $date->format('Ymd');
+    }
     
     @rename('D:\wamp\www\StoreApp\web\export\export.csv', 'D:\wamp\www\StoreApp\web\export\export_'.$date.'.csv');
     $results = $this->em->getRepository('AppBundle:Client')->getDailyClient();
@@ -37,6 +54,7 @@ class ExportCronService
       'question3',
       'question4',
       'question5',
+      'question6',
       'created_at',
       'modified_at',
       'last_visit_at',
@@ -45,6 +63,8 @@ class ExportCronService
       'commentaire3',
       'commentaire4',
       'commentaire5',
+      'commentaire6',
+      'type',
       'validated_at'
       ),';');
 
@@ -53,7 +73,7 @@ class ExportCronService
     {
       if( $row->getDateCommande() instanceof \DateTime )
       {
-        $dateC = $row->getDateCommande()->format("Y-m-d H:I:s");
+        $dateC = $row->getDateCommande()->format("Y-m-d H:i:s");
       }
       else{
         $dateC = null;
@@ -61,7 +81,7 @@ class ExportCronService
 
       if( $row->getCreatedAt() instanceof \DateTime )
       {
-        $date1 = $row->getCreatedAt()->format("Y-m-d H:I:s");
+        $date1 = $row->getCreatedAt()->format("Y-m-d H:i:s");
       }
       else{
         $date1 = null;
@@ -69,7 +89,7 @@ class ExportCronService
 
       if( $row->getModifiedAt() instanceof \DateTime )
       {
-        $date2 = $row->getModifiedAt()->format("Y-m-d H:I:s");
+        $date2 = $row->getModifiedAt()->format("Y-m-d H:i:s");
       }
       else{
         $date2 = null;
@@ -77,7 +97,7 @@ class ExportCronService
 
       if( $row->getLastVisitAt() instanceof \DateTime )
       {
-        $date3 = $row->getLastVisitAt()->format("Y-m-d H:I:s");
+        $date3 = $row->getLastVisitAt()->format("Y-m-d H:i:s");
       }
       else{
         $date3 = null;
@@ -85,7 +105,7 @@ class ExportCronService
 
       if( $row->getValidatedAt() instanceof \DateTime )
       {
-        $date4 = $row->getValidatedAt()->format("Y-m-d H:I:s");
+        $date4 = $row->getValidatedAt()->format("Y-m-d H:i:s");
       }
       else{
         $date4 = null;
@@ -100,6 +120,7 @@ class ExportCronService
         $row->getQuestion3(),
         $row->getQuestion4(),
         $row->getQuestion5(),
+        $row->getQuestion6(),
         $date1,
         $date2,
         $date3,
@@ -108,6 +129,8 @@ class ExportCronService
         str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire3() ) ) ) ),
         str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire4() ) ) ) ),
         str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire5() ) ) ) ),
+        str_replace("  ", " ",str_replace("\r", " ", str_replace("\r\n", " ", str_replace("\n", " ", $row->getCommentaire6() ) ) ) ),
+        $row->getType(),
         $date4
         ),'|');
     }

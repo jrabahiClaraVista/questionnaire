@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use AppBundle\Entity\Client;
 use AppBundle\Form\ClientType;
+use AppBundle\Form\Client2Type;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,10 +47,23 @@ class HomeController extends Controller
                 );
         }
 
-        $client->setLastVisitAt(new \DateTime());            
+        $client_check = $em->getRepository('AppBundle:Client')->findOneBy(array('hash' => $client->getHash(), 'dateCommande' => $client->getDateCommande()));
+
+        if($client_check != null){
+            $client = $client_check;
+            $client->setLastVisitAt(new \DateTime());
+        }
+        else{
+            $client->setLastVisitAt(new \DateTime());
+        }
         $em->flush();
 
-        $form = $this->createForm(new ClientType(), $client);
+        if($client->getType() == 'Montre'){
+            $form = $this->createForm(new ClientType(), $client);
+        }
+        else{
+            $form = $this->createForm(new Client2Type(), $client);
+        }
 
         $form->handleRequest($request);
 
@@ -62,13 +76,16 @@ class HomeController extends Controller
             $client->setQuestion3($data->getQuestion3());
             $client->setQuestion4($data->getQuestion4());
             $client->setQuestion5($data->getQuestion5());
+            $client->setQuestion6($data->getQuestion6());
             $client->setCommentaire1($data->getCommentaire1());
             $client->setCommentaire2($data->getCommentaire2());
             $client->setCommentaire3($data->getCommentaire3());
             $client->setCommentaire4($data->getCommentaire4());
             $client->setCommentaire5($data->getCommentaire5());
+            $client->setCommentaire6($data->getCommentaire6());
 
-            if( $data->getQuestion1() > 0 && $data->getQuestion2() > 0 && $data->getQuestion3() > 0 && $data->getQuestion4() > 0 && $data->getQuestion5() > 0 )
+            if(     $data->getQuestion1() != 0 && $data->getQuestion2() != 0 && $data->getQuestion3() != 0
+                &&  $data->getQuestion4() != 0 && $data->getQuestion5() != 0 && $data->getQuestion6() != 0 )
             {
                 $client->setValidatedAt( new \DateTime() );
             }
@@ -77,16 +94,26 @@ class HomeController extends Controller
 
             if($request->getMethod() == 'POST'){
                 return $this->render('AppBundle:Home:merci.html.twig', array(
+                'client' => $client
                     )
                 );
             }
         }
 
-        return $this->render('AppBundle:Home:index.html.twig', array(
-            'client' => $client,
-            'form'   => $form->createView()
-            )
-        );        
+        if($client->getType() == 'Montre'){
+            return $this->render('AppBundle:Home:index.html.twig', array(
+                'client' => $client,
+                'form'   => $form->createView()
+                )
+            );
+        }  
+       else{
+            return $this->render('AppBundle:Home:index2.html.twig', array(
+                'client' => $client,
+                'form'   => $form->createView()
+                )
+            );
+        }        
     }
 
     public function dateAction($hash, Request $request)
@@ -104,12 +131,23 @@ class HomeController extends Controller
 
         $dateCommande = new \DateTime($dateCommande);
 
+        $type = $request->get('t');
+
         $client = $em->getRepository('AppBundle:Client')->findOneBy(array('hash' => $hash, 'dateCommande' => $dateCommande));
 
         if ($client == null) {
             $client = new Client();
             $client->setHash($hash);
             $client->setDateCommande($dateCommande);
+
+            if($type == 'm' or $type == null){
+                $client->setType("Montre");
+            }
+            elseif($type == 'pb'){
+                $client->setType("Pile/Bracelet");
+                $client->setQuestion4(-1);
+                $client->setQuestion5(-1);
+            }
 
             $em->persist($client);
             $em->flush();

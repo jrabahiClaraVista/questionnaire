@@ -12,7 +12,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Client
  *
- * @ORM\Table(name="app_client")
+ * @ORM\Table(name="app_client", uniqueConstraints={
+ *      @ORM\UniqueConstraint(name="UNIQUE_hash_date", columns={"hash", "date_commande"})
+ * })
  * @ORM\Entity(repositoryClass="AppBundle\Entity\ClientRepository")
  * @ORM\HasLifecycleCallbacks()
  */
@@ -35,9 +37,16 @@ class Client
     private $hash;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=60)
+     */
+    private $type;
+
+    /**
      * @var integer
      *
-     * @ORM\Column(name="question1", type="integer")
+     * @ORM\Column(name="question1", type="integer", nullable=true)
      */
     private $question1;
 
@@ -68,6 +77,13 @@ class Client
      * @ORM\Column(name="question5", type="integer")
      */
     private $question5;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="question6", type="integer")
+     */
+    private $question6;
 
     /**
      * @var text
@@ -103,6 +119,14 @@ class Client
      * @ORM\Column(name="commentaire5", type="text", nullable=true)
      */
     private $commentaire5;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="commentaire6", type="text", nullable=true)
+     */
+    private $commentaire6;
 
 
     /**
@@ -151,11 +175,12 @@ class Client
         $this->lastVisitAt  = new \DateTime();
         $this->validatedAt  = null;
         //$this->dateCommande = new \DateTime();
-        $this->question1    = 0;
+        $this->question1    = null;
         $this->question2    = 0;
         $this->question3    = 0;
         $this->question4    = 0;
         $this->question5    = 0;
+        $this->question6    = 0;
     }
 
     /**
@@ -207,6 +232,28 @@ class Client
     public function setHash($hash)
     {
         $this->hash = $hash;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set type
+     *
+     * @return Client
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
 
         return $this;
     }
@@ -322,6 +369,28 @@ class Client
     }
 
     /**
+     * Get question6
+     *
+     * @return integer
+     */
+    public function getQuestion6()
+    {
+        return $this->question6;
+    }
+
+    /**
+     * Set question6
+     *
+     * @return Client
+     */
+    public function setQuestion6($question6)
+    {
+        $this->question6 = $question6;
+
+        return $this;
+    }
+
+    /**
      * Get question1
      *
      * @return text
@@ -427,6 +496,28 @@ class Client
     public function setCommentaire5($commentaire5)
     {
         $this->commentaire5 = $commentaire5;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire6
+     *
+     * @return text
+     */
+    public function getCommentaire6()
+    {
+        return $this->commentaire6;
+    }
+
+    /**
+     * Set commentaire6
+     *
+     * @return Client
+     */
+    public function setCommentaire6($commentaire6)
+    {
+        $this->commentaire6 = $commentaire6;
 
         return $this;
     }
