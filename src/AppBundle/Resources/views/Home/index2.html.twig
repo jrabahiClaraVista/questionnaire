@@ -23,19 +23,26 @@
 
 					<p>
 						Quelle est la probabilité que<br />
-						<strong style="text-transform:uppercase;">vous recommandiez	ce magasin</strong> à un ami ou proche ?
+						<strong style="text-transform:uppercase;">vous recommandiez	ce magasin</strong> à un(e) ami ou proche&nbsp;?
 					</p>
 
 					<div class="etoiles_block">
 						<div class="radio1">
+							<div class="hidden-xs" style="display:inline-block; width:33px; text-align:center;color:#E3001B">
+								<i class="fa fa-frown-o" aria-hidden="true"></i>
+							</div>
 							{% for var in form.question1 %}
-							<div style="display:inline-block; width:64px; text-align:center">
-					            {{ form_label(var) }}<br />
+							<div style="display:inline-block; width:38px; text-align:center">
+					            {{ form_label(var) }}<br class="hidden-xs" />
 					            {{ form_widget(var) }}
 					        </div>
 					        {% endfor %}
+					        <div class="hidden-xs" style="display:inline-block; width:33px; text-align:center;color:#008000">
+					        	<i class="fa fa-smile-o" aria-hidden="true"></i>
+					        </div>
 						</div>
 					</div>
+					
 					<div  id="legend1" class=" col-md-10 col-md-offset-1 col-xs-12">
 						<div class="col-xs-12 text-center"><br />
 							<p style="font-size:14px;">
@@ -58,7 +65,7 @@
 						</div>
 					</div>
 					<div style="clear:both">
-						{{ form_widget(form.Suivant1, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
+						{{ form_widget(form.Suivant1, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}<br />
 					</div>
 				</div>
 			</div>
@@ -87,6 +94,15 @@
 						<span id="question2_4" class="etoile etoile4" number="2" value="4"></span>
 						<span id="question2_5" class="etoile etoile5" number="2" value="5"></span>
 					</div>
+
+					<div class=" col-md-10 col-md-offset-1 col-xs-12">
+						<div class="col-xs-12 text-center"><br />
+							<p style="font-size:14px;">
+								<span id="one_text">1 étoile = vous n’êtes pas du tout satisfait</span><br />
+								<span id="two_text">5 étoiles = vous êtes très satisfait</span>
+							</p>
+						</div>
+					</div>
 					<div class="error col-xs-12" style="margin:10px 0;display:none;">
 						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
 							Veuillez renseigner une note ci-dessus pour passer à la question suivante
@@ -102,7 +118,7 @@
 					</div>
 					<div>
 						<button id="prev2" type="button" class="btn btn-lp-action">Précédent</button>
-						{{ form_widget(form.Suivant2, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
+						{{ form_widget(form.Suivant2, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}<br />
 					</div>
 				</div>
 			</div>
@@ -131,6 +147,15 @@
 						<span id="question3_4" class="etoile etoile4" number="3" value="4"></span>
 						<span id="question3_5" class="etoile etoile5" number="3" value="5"></span>
 					</div>
+
+					<div class=" col-md-10 col-md-offset-1 col-xs-12">
+						<div class="col-xs-12 text-center"><br />
+							<p style="font-size:14px;">
+								<span id="one_text">1 étoile = vous n’êtes pas du tout satisfait</span><br />
+								<span id="two_text">5 étoiles = vous êtes très satisfait</span>
+							</p>
+						</div>
+					</div>
 					<div class="error col-xs-12" style="margin:10px 0;display:none;">
 						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
 							Veuillez renseigner une note ci-dessus pour passer à la question suivante
@@ -147,7 +172,7 @@
 					</div>
 					<div>
 						<button id="prev3" type="button" class="btn btn-lp-action">Précédent</button>
-						{{ form_widget(form.Suivant3, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}
+						{{ form_widget(form.Suivant3, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}<br />
 					</div>
 				</div>
 			</div>
@@ -177,6 +202,15 @@
 						<span id="question6_4" class="etoile etoile4" number="6" value="4"></span>
 						<span id="question6_5" class="etoile etoile5" number="6" value="5"></span>
 					</div>
+
+					<div class=" col-md-10 col-md-offset-1 col-xs-12">
+						<div class="col-xs-12 text-center"><br />
+							<p style="font-size:14px;">
+								<span id="one_text">1 étoile = vous n’êtes pas du tout satisfait</span><br />
+								<span id="two_text">5 étoiles = vous êtes très satisfait</span>
+							</p>
+						</div>
+					</div>
 					<div class="error col-xs-12" style="margin:10px 0;display:none;">
 						<p class="bg-danger text-danger" style="font-size:14px; padding:10px;">
 							Veuillez renseigner une note ci-dessus pour valider vos réponses
@@ -193,7 +227,7 @@
 					</div>
 					<div>
 						<button id="prev6" type="button" class="btn btn-lp-action">Précédent</button>
-						{{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-lp'} }) }}
+						{{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-lp'} }) }}<br />
 					</div>
 				</div>
 			</div>
@@ -225,15 +259,6 @@
 
 			{{ form_rest(form) }}
 		{{ form_end(form) }}
-	</div>
-
-	<div  id="legend2" style="display:none;" class=" col-md-10 col-md-offset-1 col-xs-12">
-		<div class="col-xs-12 text-center"><br />
-			<p style="font-size:14px;">
-				<span id="one_text">1 étoile = vous n’êtes pas du tout satisfait</span><br />
-				<span id="two_text">5 étoiles = vous êtes très satisfait</span>
-			</p>
-		</div>
 	</div>
 {% endblock %}
 
