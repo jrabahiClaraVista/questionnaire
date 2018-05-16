@@ -12,6 +12,10 @@ app_merci:
     path:      /merci/{client_id}
     defaults:  { _controller: AppBundle:Home:merci}
 
+app_default:
+    path:      /_merci
+    defaults:  { _controller: AppBundle:Home:default}
+
 
 
 # redirecting the root
@@ -19,5 +23,5 @@ root:
     path: /
     defaults:
         _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /merci
+        path: /_merci
         permanent: true
