@@ -84,7 +84,7 @@ class HomeController extends Controller
             $client->setCommentaire5($data->getCommentaire5());
             $client->setCommentaire6($data->getCommentaire6());
 
-            if(     $data->getQuestion1() != 0 && $data->getQuestion2() != 0 && $data->getQuestion3() != 0
+            if(     $data->getQuestion1() >= 0 && $data->getQuestion2() != 0 && $data->getQuestion3() != 0
                 &&  $data->getQuestion4() != 0 && $data->getQuestion5() != 0 && $data->getQuestion6() != 0 )
             {
                 $client->setValidatedAt( new \DateTime() );
@@ -171,6 +171,14 @@ class HomeController extends Controller
 
         return $this->render('AppBundle:Home:merci.html.twig', array(
             'client' => $client
+            )
+        );
+    }
+
+    public function defaultAction(Request $request)
+    {
+
+        return $this->render('AppBundle:Home:default.html.twig', array(
             )
         );
     }
