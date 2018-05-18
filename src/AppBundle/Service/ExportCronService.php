@@ -17,15 +17,15 @@ class ExportCronService
   }
 
   public function createExportClientCSVFile()
-  { 
+  {
     $now = new \DateTime();
-    
+
     $date_check1 =  new \DateTime();
     $date_check2 =  new \DateTime();
 
     $date_check1->setTime(0,0);
     $date_check2->setTime(1,0);
-    
+
 
     if ( ($now >= $date_check1) && ($now <= $date_check2) )
     {
@@ -37,14 +37,14 @@ class ExportCronService
       $date = new \DateTime();
       $date = $date->format('Ymd');
     }
-    
-    @rename('D:\wamp\www\StoreApp\web\export\export.csv', 'D:\wamp\www\StoreApp\web\export\export_'.$date.'.csv');
+
+    @rename('/data/ftp/exports/export.csv', '/data/ftp/exports/export_'.$date.'.csv');
     $results = $this->em->getRepository('AppBundle:Client')->getDailyClient();
 
     //$results = array_pop($results);
 
-    $handle = fopen('D:\wamp\www\questionnaire\web\exports\export.csv', 'w+');
-    // Nom des colonnes du CSV 
+    $handle = fopen('/data/ftp/exports/export.csv', 'w+');
+    // Nom des colonnes du CSV
     fputcsv($handle, array(
       'id',
       'hash',
@@ -69,7 +69,7 @@ class ExportCronService
       ),';');
 
     //Champs
-    foreach( $results as $row ) 
+    foreach( $results as $row )
     {
       if( $row->getDateCommande() instanceof \DateTime )
       {
@@ -110,7 +110,7 @@ class ExportCronService
       else{
         $date4 = null;
       }
-      
+
       fputcsv($handle,array(
         $row->getId(),
         $row->getHash(),
