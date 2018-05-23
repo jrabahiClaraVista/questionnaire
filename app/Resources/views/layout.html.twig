@@ -20,18 +20,18 @@
         %#}
             <!--link rel="stylesheet" href="{{ asset_url }}"-->
             <link rel="stylesheet" href="{{ asset('web/css/font-awesome.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('web/css/all.css') }}">
+            <link rel="stylesheet" href="{{ asset('web/css/all.css') }}?v=20180523">
         {#% endstylesheets %#}
 
         <script src="{{ asset('web/js/ckeditor/ckeditor.js') }}"></script>
         <script type="text/javascript">
             CKEDITOR.timestamp='ABCD';
-        </script>                
+        </script>
     {% endblock %}
 </head>
 
 <body>
-    <div id="wrapper" class="container">        
+    <div id="wrapper" class="container">
         <header class="nav-wrap">
             <nav class="main-menu">
                 <div class="container">
@@ -60,7 +60,7 @@
                                     <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-lock" aria-hidden="true"></i> {{"Logout"|trans}}</a></li>
                                 </ul>
                             </li>
-                        </ul>                        
+                        </ul>
                     {% endif %}
                 </div><!-- /.container-fluid -->
             </nav>
