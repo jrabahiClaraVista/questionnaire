@@ -62,6 +62,7 @@ assetic:
     use_controller: 
     bundles:        [ ]
     #java: /usr/bin/java
+    #ruby:  C:\Ruby25-x64\bin\ruby.exe
     filters:
         cssrewrite: ~
         #For SASS & Compass, install Ruby 1st then
