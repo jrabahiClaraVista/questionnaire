@@ -75,9 +75,9 @@ assetic:
         #chancge line 312 $pb->add('--sass-dir')->add('')->add('--css-dir')->add('');
         #to $pb->add('--sass-dir')->add($tempDir)->add('--css-dir')->add($tempDir);
         sass:
-            bin: C:\Ruby22-x64\bin\sass
+            bin: C:\Ruby25-x64\bin\sass
         compass:
-            bin: C:\Ruby22-x64\bin\compass
+            bin: C:\Ruby25-x64\bin\compass
 
 
 # Doctrine Configuration
