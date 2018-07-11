@@ -8,7 +8,8 @@
 			<div>
 				<div class="col-xs-12 text-center">
 					<div class="header-form">
-					<h2 style="font-weight:bold;">MERCI{% if client.validatedAt is not null %}, VOUS AVEZ DEJA REPONDU A CE QUESTIONNAIRE&nbsp;!{% else %} !{% endif %}</h2>
+					</div>
+					<h2 style="font-weight:bold;">MERCI{% if client.validatedAt == null %}, VOUS AVEZ DEJA REPONDU A CE QUESTIONNAIRE&nbsp;!{% else %} !{% endif %}</h2>
 					<h2>A très vite en boutique ou<br />
 						sur <a class="underline" href="https://www.louispion.fr">louispion.fr</a> !</h2>
 				</div>
