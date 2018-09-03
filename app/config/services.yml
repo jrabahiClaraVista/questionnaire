@@ -15,7 +15,9 @@ services:
 
     cron.export:
         class: AppBundle\Service\ExportCronService
-        arguments: [ @doctrine.orm.entity_manager ]
+        arguments: 
+            - @doctrine.orm.entity_manager
+            - @service_container
 
     app.twig_extension:
         class: AppBundle\Service\TwigExtensionService
@@ -23,3 +25,7 @@ services:
         arguments: [ @doctrine.orm.entity_manager ]
         tags:
             - { name: twig.extension }
+
+    app.pdo_connect:
+        class: AppBundle\Service\PdoService
+        arguments: [ @service_container ]
