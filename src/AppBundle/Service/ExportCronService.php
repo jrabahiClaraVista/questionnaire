@@ -19,19 +19,14 @@ use AppBundle\Entity\Client;
 
 class ExportCronService
 {
-  private $separator;
   private $pdo;
-  private $ip;
   private $em;
   private $container;
 
   public function __construct(EntityManager $entityManager, ContainerInterface $container)
   {
       $this->em           = $entityManager;
-      $this->ip           = $local_ip;
       $this->container    = $container;
-
-      $this->encoder = $this->container->get('security.password_encoder');
 
       $this->pdo = $this->container->get('app.pdo_connect');
       $this->pdo = $this->pdo->initPdoClienteling();
