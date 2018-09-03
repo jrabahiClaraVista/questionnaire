@@ -2,7 +2,16 @@
 
 namespace AppBundle\Service;
 
+
+
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
 use Doctrine\ORM\EntityManager;
+
 
 use AppBundle\Entity\Client;
 
@@ -10,10 +19,43 @@ use AppBundle\Entity\Client;
 
 class ExportCronService
 {
+  private $separator;
+  private $pdo;
+  private $ip;
+  private $em;
+  private $container;
 
-  public function __construct(EntityManager $entityManager)
+  public function __construct(EntityManager $entityManager, ContainerInterface $container)
   {
-    $this->em = $entityManager;
+      $this->em           = $entityManager;
+      $this->ip           = $local_ip;
+      $this->container    = $container;
+
+      $this->encoder = $this->container->get('security.password_encoder');
+
+      $this->pdo = $this->container->get('app.pdo_connect');
+      $this->pdo = $this->pdo->initPdoClienteling();
+  }
+
+  public function deleteHistoDays(InputInterface $input, OutputInterface $output, $days){
+    $date = new \DateTime();
+    $date = $date->format("Ymd");
+
+    $sql1 = "DELETE from app_client 
+          WHERE modified_at <= DATE_SUB( now(), INTERVAL $days DAY ) 
+    ";
+
+    try
+    {
+      $stmt1->execute();
+    }
+    catch(Exception $e)
+    {
+      $output->writeln($e->getMessage());
+      die('Erreur 1 : '.$e->getMessage());
+    }
+
+    $output->writeln("Les anciennes lignes ont été supprimees");
   }
 
   public function createExportClientCSVFile()

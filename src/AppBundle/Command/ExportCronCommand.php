@@ -32,6 +32,9 @@ class ExportCronCommand extends ContainerAwareCommand
 		$import = $this->getContainer()->get('cron.export');
 
 		$import->createExportClientCSVFile();
+		
+		$output->writeln("Delete histo > 30 jours");
+		$import->deleteHistoDays($input, $output, 30);
 		//$import->exportCSVFileToFtp($host, $username, $password, $sourceFile, $destinationFile);
 
 
