@@ -40,7 +40,7 @@ class ExportCronService
           WHERE modified_at <= DATE_SUB( now(), INTERVAL $days DAY ) 
     ";
 
-    $stmt = $this->pdo->prepare($sql1);
+    $stmt1 = $this->pdo->prepare($sql1);
 
     try
     {
