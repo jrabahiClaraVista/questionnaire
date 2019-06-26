@@ -159,6 +159,11 @@ class HomeController extends Controller
             $em->flush();
         }
 
+        if($note != null and in_array($note,array(0,1,2,3,4,5,6,7,8,9,10))){
+            $client->setQuestion1($note);
+            $em->flush();
+        }
+
         /*$response = $this->forward('AppBundle:Home:index', array(
             'client_id' => $client->getId(),
         ));*/
