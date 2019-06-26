@@ -129,6 +129,8 @@ class HomeController extends Controller
             $dateCommande = $request->get('d');
         }
 
+        $note =  intval($request->get('n'));
+
         $dateCommande = new \DateTime($dateCommande);
 
         $type = $request->get('t');
@@ -147,6 +149,10 @@ class HomeController extends Controller
                 $client->setType("Pile/Bracelet");
                 $client->setQuestion4(-1);
                 $client->setQuestion5(-1);
+            }
+
+            if($note != null and in_array($note,array(0,1,2,3,4,5,6,7,8,9,10))){
+                $client->setQuestion1($note);
             }
 
             $em->persist($client);
