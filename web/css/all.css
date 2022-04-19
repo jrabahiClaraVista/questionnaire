@@ -107,7 +107,7 @@ h1:after {
 }
 /* line 70, ../../../web/sass/_body.scss */
 .home-block > div > div {
-  margin-top: 30px;
+  margin-top: 60px;
   padding: 0 30px 30px 30px;
 }
 @media screen and (max-width: 480px) {
