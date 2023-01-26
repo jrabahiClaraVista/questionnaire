@@ -18,10 +18,10 @@
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
+						<!--i class="fa fa-circle-o fa-1" aria-hidden="true"></i-->
 					</p>
-					<div class="header-form">
-					</div>
+					<!--div class="header-form">
+					</div-->
 
 					<p>
 						Quelle est la probabilité que<br />
@@ -40,7 +40,7 @@
 					        </div>
 					        {% endfor %}
 					        <div class="hidden-xs" style="display:inline-block; width:33px; text-align:center;color:#008000">
-					        	<i class="fa fa-smile-o" aria-hidden="true"></i>
+					        <i class="fa fa-smile-o" aria-hidden="true"></i>
 					        </div>
 						</div>
 					</div>
@@ -57,7 +57,7 @@
 							Veuillez renseigner une note ci-dessus pour passer à la question suivante
 						</p>
 					</div>
-					<div class="col-xs-12 text-left commentaire">
+					<div class="col-xs-12 text-left commentaire" style="display:none;">
 						<label for="appbundle_client[commentaire3]">
 							Pourquoi ?
 						</label>
@@ -80,10 +80,10 @@
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
+						<!--i class="fa fa-circle-o fa-1" aria-hidden="true"></i-->
 					</p>
-					<div class="header-form">
-					</div>
+					<!--div class="header-form">
+					</div-->
 
 					<p>
 						Quelle note donneriez-vous à<br />
@@ -134,14 +134,15 @@
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
+						<!--i class="fa fa-circle-o fa-1" aria-hidden="true"></i-->
 					</p>
-					<div class="header-form">
-					</div>
+					<!--div class="header-form">
+					</div-->
 
 					<p>
-						Quelle note donneriez-vous au<br />
-						<strong style="text-transform:uppercase;">temps d'attente avant la prise en charge</strong> ?
+						Quelle note donneriez-vous à<br />
+						<strong style="text-transform:uppercase;">votre expérience d'achat</strong><br />
+						(temps d'attente, conseils, services proposés...) ?
 					</p>
 
 					<div class="etoiles_block">
@@ -189,15 +190,15 @@
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
+						<!--i class="fa fa-circle-o fa-1" aria-hidden="true"></i-->
 					</p>
-					<div class="header-form">
-					</div>
+					<!--div class="header-form">
+					</div-->
 
 					<p>
 						Quelle note donneriez-vous à<br />
 						<strong style="text-transform:uppercase;">la présentation des produits</strong><br />
-						(vitrines, merchandising...) ?
+						(vitrines, disposition...) ?
 					</p>
 
 					<div class="etoiles_block">
@@ -245,10 +246,10 @@
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
-						<i class="fa fa-circle-o fa-1" aria-hidden="true"></i>
+						<!--i class="fa fa-circle-o fa-1" aria-hidden="true"></i-->
 					</p>
-					<div class="header-form">
-					</div>
+					<!--div class="header-form">
+					</div-->
 
 					<p>
 						Quelle note donneriez-vous<br />
@@ -286,7 +287,8 @@
 					</div>
 					<div>
 						<button id="prev5" type="button" class="btn btn-lp-action">Précédent</button>
-						{{ form_widget(form.Suivant5, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }}<br />
+						{#{ form_widget(form.Suivant5, {'attr': {'class': 'btn btn-lp-action'}, 'label': 'Suivant' }) }#}
+						{{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-lp'} }) }}<br />
 					</div>
 				</div>
 			</div>
@@ -302,8 +304,8 @@
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 						<i class="fa fa-circle fa-1" aria-hidden="true"></i>
 					</p>
-					<div class="header-form">
-					</div>
+					<!--div class="header-form">
+					</div-->
 
 					<p>
 						Quelle note donneriez-vous à<br />
@@ -337,12 +339,12 @@
 							Commentaire :
 						</label>
 						<div>
-							{{ form_widget(form.commentaire6) }}
+							{#{ form_widget(form.commentaire6) }#}
 						</div>
 					</div>
 					<div>
 						<button id="prev6" type="button" class="btn btn-lp-action">Précédent</button>
-						{{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-lp'} }) }}<br />
+						{#{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-lp'} }) }#}<br />
 					</div>
 				</div>
 			</div>
@@ -350,8 +352,8 @@
 		<div id="step7" class="col-md-10 col-md-offset-1 col-xs-12 home-block">
 			<div>
 				<div class="col-xs-12 text-center">
-					<div class="header-form">
-					</div>
+					<!--div class="header-form">
+					</div-->
 					<br />
 					<h2 style="font-weight:bold;">MERCI !</h2>
 					<br />
@@ -365,7 +367,7 @@
 
 					<a class="instagram" href="http://instagram.com/louispion" target="_blank" title="Instagram" style="padding:0 10px;"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
 					<a class="facebook" href="https://www.facebook.com/LouisPionOfficiel" target="_blank" title="Facebook" style="padding:0 10px;"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
-					<a class="twitter" href="https://twitter.com/LouisPion" target="_blank" title="Twitter" style="padding:0 10px;"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
+					<!--a class="twitter" href="https://twitter.com/LouisPion" target="_blank" title="Twitter" style="padding:0 10px;"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a-->
 					<!--a class="youtube" href="http://www.youtube.com/user/LouisPionOfficiel" target="_blank" title="Youtube" style="padding:0 10px;"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a-->
 
 				</div>
@@ -1179,12 +1181,12 @@
 		  		}
 		  	});
 		  	$("#appbundle_client_Envoyer").on('click', function(){
-		  		if( $("#appbundle_client_question6").val() == 0 ) {
+		  		if( $("#appbundle_client_question5").val() == 0 ) {
 		  			$(".error").show();
 		  		}
 		  		else{
 		  			$(".error").hide();
-		  			$("#step6").hide();
+		  			$("#step5").hide();
 		  			$("#legend2").hide();
 		  			$("#step7").show();
 		  		}

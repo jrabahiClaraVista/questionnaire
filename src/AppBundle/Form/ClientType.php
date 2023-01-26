@@ -47,14 +47,14 @@ class ClientType extends AbstractType
             ->add('commentaire4', 'textarea', array('required' => false) )
             ->add('question5', 'hidden', array('required' => false) )
             ->add('commentaire5', 'textarea', array('required' => false) )
-            ->add('question6', 'hidden', array('required' => false) )
-            ->add('commentaire6', 'textarea', array('required' => false) )
+            //->add('question6', 'hidden', array('required' => false) )
+            //->add('commentaire6', 'textarea', array('required' => false) )
             ->add('Envoyer', 'submit')
             ->add('Suivant1', 'submit')
             ->add('Suivant2', 'submit')
             ->add('Suivant3', 'submit')
             ->add('Suivant4', 'submit')
-            ->add('Suivant5', 'submit')
+//            ->add('Suivant5', 'submit')
         ;
     }
     

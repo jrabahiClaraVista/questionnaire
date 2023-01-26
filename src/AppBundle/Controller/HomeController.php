@@ -76,16 +76,16 @@ class HomeController extends Controller
             $client->setQuestion3($data->getQuestion3());
             $client->setQuestion4($data->getQuestion4());
             $client->setQuestion5($data->getQuestion5());
-            $client->setQuestion6($data->getQuestion6());
+//            $client->setQuestion6($data->getQuestion6());
             $client->setCommentaire1($data->getCommentaire1());
             $client->setCommentaire2($data->getCommentaire2());
             $client->setCommentaire3($data->getCommentaire3());
             $client->setCommentaire4($data->getCommentaire4());
             $client->setCommentaire5($data->getCommentaire5());
-            $client->setCommentaire6($data->getCommentaire6());
+//            $client->setCommentaire6($data->getCommentaire6());
 
             if(     $data->getQuestion1() >= 0 && $data->getQuestion2() != 0 && $data->getQuestion3() != 0
-                &&  $data->getQuestion4() != 0 && $data->getQuestion5() != 0 && $data->getQuestion6() != 0 )
+                &&  $data->getQuestion4() != 0 && $data->getQuestion5() != 0 )
             {
                 $client->setValidatedAt( new \DateTime() );
             }
